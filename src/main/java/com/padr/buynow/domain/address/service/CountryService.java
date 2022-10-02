@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.address.entity.Country;
 import com.padr.buynow.domain.address.exception.CountryNotFoundException;
-import com.padr.buynow.outbound.cache.address.port.CountryCachePort;
+import com.padr.buynow.outbound.redis.address.port.CountryCachePort;
 
 import lombok.RequiredArgsConstructor;
 

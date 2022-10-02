@@ -1,11 +1,11 @@
-package com.padr.buynow.outbound.cache.address.port;
+package com.padr.buynow.outbound.redis.address.port;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.address.entity.City;
-import com.padr.buynow.outbound.cache.address.repository.CityCacheRepository;
+import com.padr.buynow.outbound.redis.address.repository.CityCacheRepository;
 
 import lombok.RequiredArgsConstructor;
 

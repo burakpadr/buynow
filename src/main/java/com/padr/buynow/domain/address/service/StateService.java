@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.padr.buynow.domain.address.entity.Country;
 import com.padr.buynow.domain.address.entity.State;
 import com.padr.buynow.domain.address.exception.StateNotFoundException;
-import com.padr.buynow.outbound.cache.address.port.StateCachePort;
+import com.padr.buynow.outbound.redis.address.port.StateCachePort;
 
 import lombok.RequiredArgsConstructor;
 

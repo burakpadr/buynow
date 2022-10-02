@@ -1,4 +1,4 @@
-package com.padr.buynow.outbound.cache.address.port;
+package com.padr.buynow.outbound.redis.address.port;
 
 import java.util.List;
 import java.util.Optional;

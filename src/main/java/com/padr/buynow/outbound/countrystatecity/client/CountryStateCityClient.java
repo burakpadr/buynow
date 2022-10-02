@@ -6,12 +6,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.padr.buynow.outbound.countrystatecity.configuration.FeignClientConfiguration;
+import com.padr.buynow.outbound.countrystatecity.configuration.CountryStateCityFeignConfiguration;
 import com.padr.buynow.outbound.countrystatecity.model.CityResponse;
 import com.padr.buynow.outbound.countrystatecity.model.CountryResponse;
 import com.padr.buynow.outbound.countrystatecity.model.StateResponse;
 
-@FeignClient(value = "countryStateCity", url = "https://api.countrystatecity.in/v1", configuration = FeignClientConfiguration.class)
+@FeignClient(value = "countryStateCity", url = "https://api.countrystatecity.in/v1", configuration = CountryStateCityFeignConfiguration.class)
 public interface CountryStateCityClient {
 
     @GetMapping("/countries")

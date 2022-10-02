@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
-public class FeignClientConfiguration {
+public class CountryStateCityFeignConfiguration {
 
     private final CountryStateCityProperty countryStateCityProperty;
 

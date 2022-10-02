@@ -1,4 +1,4 @@
-package com.padr.buynow.outbound.cache.address.repository;
+package com.padr.buynow.outbound.redis.address.repository;
 
 import java.util.List;
 

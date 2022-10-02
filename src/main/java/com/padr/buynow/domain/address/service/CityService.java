@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.address.entity.City;
 import com.padr.buynow.domain.address.entity.State;
-import com.padr.buynow.outbound.cache.address.port.CityCachePort;
+import com.padr.buynow.outbound.redis.address.port.CityCachePort;
 
 import lombok.RequiredArgsConstructor;
 
