@@ -22,3 +22,6 @@ integration:
   country-state-city:
       apiAuthenticationAlias: X-CSCAPI-KEY
       apiAuthenticationValue: xxx
+
+hashids:
+  salt: salt
