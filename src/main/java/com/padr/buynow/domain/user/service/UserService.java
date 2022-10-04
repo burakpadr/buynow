@@ -29,6 +29,7 @@ public class UserService {
 
         Address address = addressService.createAddress(user.getAddress());
 
+        user.setIsActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setAddress(address);
 
