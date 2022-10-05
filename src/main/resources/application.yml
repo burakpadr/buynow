@@ -25,3 +25,4 @@ integration:
 
 hashids:
   salt: salt
+  minimumHashLength: 6

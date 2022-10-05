@@ -16,6 +16,6 @@ public class HashidsConfiguration {
 
     @Bean
     public Hashids hashids() {
-        return new Hashids(hashidsProperty.getSalt());
+        return new Hashids(hashidsProperty.getSalt(), hashidsProperty.getMinimumHashLength());
     }
 }

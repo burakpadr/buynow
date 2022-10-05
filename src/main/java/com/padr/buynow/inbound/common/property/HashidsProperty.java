@@ -11,4 +11,5 @@ import lombok.Data;
 public class HashidsProperty {
     
     private String salt; 
+    private Integer minimumHashLength;
 }
