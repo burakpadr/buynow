@@ -22,10 +22,13 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public User createUserIfNotExist(User user) {
-        userPersistencePort.findByIdentityNumber(user.getIdentityNumber())
-                .orElseThrow(UserAlreadyExistWithIdentityNumberException::new);
+        userPersistencePort.findByIdentityNumber(user.getIdentityNumber()).ifPresent(u -> {
+            throw new UserAlreadyExistWithIdentityNumberException();
+        });
 
-        userPersistencePort.findByEmail(user.getEmail()).orElseThrow(UserAlreadyExistWithEmailException::new);
+        userPersistencePort.findByEmail(user.getEmail()).ifPresent(u -> {
+            throw new UserAlreadyExistWithEmailException();
+        });
 
         Address address = addressService.createAddress(user.getAddress());
 
@@ -54,7 +57,7 @@ public class UserService {
         user.setSurname(updateUser.getSurname());
         user.setEmail(updateUser.getEmail());
         user.setBirthDate(updateUser.getBirthDate());
-        
+
         return userPersistencePort.save(user);
     }
 
