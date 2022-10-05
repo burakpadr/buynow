@@ -47,7 +47,7 @@ public class UserService {
         User user = findUserById(id);
 
         userPersistencePort.findByEmail(updateUser.getEmail()).ifPresent(u -> {
-            if (u.getId() == user.getId())
+            if (u.getId() != user.getId())
                 throw new UserAlreadyExistWithEmailException();
         });
 
