@@ -14,6 +14,6 @@ Also, you can see the db structure of address domain -> [Link](https://www.linkp
 
 # Product Domain
 
-Product domain will implement as soon as time.
+The product domain will be implemented as soon as time.
 
-You can see the db structure of product domain -> [Link](https://www.linkpicture.com/q/db-design-for-product-domain.jpg)
+You can see the db structure of product domain -> [Link](https://iili.io/Q7liHg.jpg)
