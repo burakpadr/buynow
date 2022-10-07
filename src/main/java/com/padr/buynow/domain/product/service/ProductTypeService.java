@@ -48,7 +48,7 @@ public class ProductTypeService {
         });
 
         productType.setName(updateProductType.getName());
-        productType.setDescription(updateProductType.getDescription());
+        productType.setLabel(updateProductType.getLabel());
         
         return productTypePersistencePort.save(productType);
     }

@@ -31,7 +31,7 @@ public class ProductType {
     private String name;
 
     @Column
-    private String description;
+    private String label;
 
     @Column
     private Boolean isActive;
