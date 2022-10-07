@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.product.port;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.product.entity.ProductType;
@@ -26,6 +28,11 @@ public class ProductTypeServicePortImpl implements ProductTypeServicePort {
     @Override
     public ProductType findByName(String name) {
         return productTypeService.findByName(name);
+    }
+
+    @Override
+    public List<ProductType> findByParentProductTypeId(Long parentProductTypeId) {
+        return productTypeService.findByParentProductTypeId(parentProductTypeId);
     }
 
     @Override
