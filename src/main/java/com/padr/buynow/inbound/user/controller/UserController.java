@@ -32,17 +32,17 @@ public class UserController {
         return UserResponse.of(userServicePort.createUserIfNotExist(userRequest.to()));
     }
 
-    @GetMapping("/id/{userId}")
+    @GetMapping("/{userId}")
     public UserResponse findUserById(@PathVariable Long userId) {
         return UserResponse.of(userServicePort.findUserById(userId));
     }
 
-    @PutMapping("/id/{userId}")
+    @PutMapping("/{userId}")
     public UserResponse updateUser(@PathVariable Long userId, @Valid @RequestBody UserRequest updateUser) {
         return UserResponse.of(userServicePort.updateUser(userId, updateUser.to()));
     }
 
-    @DeleteMapping("/id/{userId}")
+    @DeleteMapping("/{userId}")
     public void deleteUserById(@PathVariable Long userId) {
         userServicePort.deleteUserById(userId);
     }
