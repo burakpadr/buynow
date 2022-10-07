@@ -2,11 +2,14 @@ package com.padr.buynow.outbound.persistence.product.port;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
 import com.padr.buynow.domain.product.entity.ProductType;
 import com.padr.buynow.outbound.persistence.product.repository.ProductTypeRepository;
 
 import lombok.RequiredArgsConstructor;
 
+@Component
 @RequiredArgsConstructor
 public class ProductTypePersistencePortImpl implements ProductTypePersistencePort {
     
