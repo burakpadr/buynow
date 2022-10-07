@@ -1,5 +1,6 @@
 package com.padr.buynow.outbound.persistence.product.port;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -23,6 +24,11 @@ public class ProductTypePersistencePortImpl implements ProductTypePersistencePor
     @Override
     public Optional<ProductType> findByName(String name) {
         return productTypeRepository.findByName(name);
+    }
+
+    @Override
+    public List<ProductType> findByParentProductTypeId(Long parentProductTypeId) {
+        return productTypeRepository.findByParentProductTypeId(parentProductTypeId);
     }
 
     @Override
