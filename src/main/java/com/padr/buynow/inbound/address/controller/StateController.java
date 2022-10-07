@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.padr.buynow.domain.address.port.StateServicePort;
-import com.padr.buynow.inbound.address.model.StateResponse;
+import com.padr.buynow.inbound.address.model.response.StateResponse;
 
 import lombok.RequiredArgsConstructor;
 

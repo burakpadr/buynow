@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.address.model;
+package com.padr.buynow.inbound.address.model.response;
 
 import com.padr.buynow.domain.address.entity.City;
 

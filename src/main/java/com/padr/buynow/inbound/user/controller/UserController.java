@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.padr.buynow.domain.user.port.UserServicePort;
-import com.padr.buynow.inbound.user.model.UserRequest;
-import com.padr.buynow.inbound.user.model.UserResponse;
+import com.padr.buynow.inbound.user.model.request.UserRequest;
+import com.padr.buynow.inbound.user.model.response.UserResponse;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.user.model;
+package com.padr.buynow.inbound.user.model.request;
 
 import java.time.LocalDate;
 
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.padr.buynow.domain.user.entity.User;
-import com.padr.buynow.inbound.address.model.AddressRequest;
+import com.padr.buynow.inbound.address.model.request.AddressRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
