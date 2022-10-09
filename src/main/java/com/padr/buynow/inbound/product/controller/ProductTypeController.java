@@ -45,28 +45,28 @@ public class ProductTypeController {
         return ProductTypeResponse.of(productTypeServicePort.createProductType(productType));
     }
 
-    @GetMapping("/by/id/{productTypeId}")
+    @GetMapping("/{productTypeId}")
     public ProductTypeResponse findById(@PathVariable Long productTypeId) {
         return ProductTypeResponse.of(productTypeServicePort.findById(productTypeId));
     }
 
-    @GetMapping("/by/name/{name}")
+    @GetMapping("/name/{name}")
     public ProductTypeResponse findByName(@PathVariable String name) {
         return ProductTypeResponse.of(productTypeServicePort.findByName(name));
     }
 
-    @GetMapping("/by/parent-product-type/id/{parentProductTypeId}")
+    @GetMapping("/parent-product-type-id/{parentProductTypeId}")
     public List<ProductTypeResponse> findByParentProductTypeId(@PathVariable Long parentProductTypeId) {
         return productTypeServicePort.findByParentProductTypeId(parentProductTypeId).stream()
                 .map(ProductTypeResponse::of).collect(Collectors.toList());
     }
 
-    @PutMapping("/by/id/{productTypeId}")
+    @PutMapping("/{productTypeId}")
     public ProductTypeResponse updateProductType(@PathVariable Long productTypeId, @Valid @RequestBody ProductTypeRequest updateProductType) {
         return ProductTypeResponse.of(productTypeServicePort.updateProductType(productTypeId, updateProductType.to()));
     }
 
-    @DeleteMapping("/by/id/{productTypeId}")
+    @DeleteMapping("/{productTypeId}")
     public void deleteProductTypeById(@PathVariable Long productTypeId) {
         productTypeServicePort.deleteById(productTypeId);
     }
