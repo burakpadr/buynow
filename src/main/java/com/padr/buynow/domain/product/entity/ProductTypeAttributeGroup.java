@@ -1,15 +1,11 @@
 package com.padr.buynow.domain.product.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,16 +15,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "product_types")
+@Table(name = "product_type_attribute_groups")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductType {
+public class ProductTypeAttributeGroup {
     
     @Id
-    @SequenceGenerator(name = "product_type_id_seq", sequenceName = "product_type_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_type_id_seq")
+    @SequenceGenerator(name = "product_type_attribute_group_id_seq", sequenceName = "product_type_attribute_group_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_type_attribute_group_id_seq")
     private Long id;
 
     @Column
@@ -40,9 +36,6 @@ public class ProductType {
     @Column
     private Boolean isActive;
 
-    @OneToOne
-    private ProductType parentProductType;
-
-    @OneToMany(mappedBy = "productType", fetch = FetchType.LAZY)
-    private List<ProductTypeAttributeGroup> productTypeAttributeGroups;
+    @ManyToOne
+    private ProductType productType;
 }
