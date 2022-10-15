@@ -25,7 +25,7 @@ import com.padr.buynow.inbound.product.model.response.ProductTypeResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/product-type")
+@RequestMapping("/product-types")
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
 public class ProductTypeController {
@@ -45,28 +45,28 @@ public class ProductTypeController {
         return ProductTypeResponse.of(productTypeServicePort.createProductType(productType));
     }
 
-    @GetMapping("/{productTypeId}")
+    @GetMapping("/by/id/{productTypeId}")
     public ProductTypeResponse findById(@PathVariable Long productTypeId) {
         return ProductTypeResponse.of(productTypeServicePort.findById(productTypeId));
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/by/name/{name}")
     public ProductTypeResponse findByName(@PathVariable String name) {
         return ProductTypeResponse.of(productTypeServicePort.findByName(name));
     }
 
-    @GetMapping("/parent-product-type-id/{parentProductTypeId}")
+    @GetMapping("/by/parent-product-type/{parentProductTypeId}")
     public List<ProductTypeResponse> findByParentProductTypeId(@PathVariable Long parentProductTypeId) {
         return productTypeServicePort.findByParentProductTypeId(parentProductTypeId).stream()
                 .map(ProductTypeResponse::of).collect(Collectors.toList());
     }
 
-    @PutMapping("/{productTypeId}")
+    @PutMapping("/by/id/{productTypeId}")
     public ProductTypeResponse updateProductType(@PathVariable Long productTypeId, @Valid @RequestBody ProductTypeRequest updateProductType) {
         return ProductTypeResponse.of(productTypeServicePort.updateProductType(productTypeId, updateProductType.to()));
     }
 
-    @DeleteMapping("/{productTypeId}")
+    @DeleteMapping("/by/{productTypeId}")
     public void deleteProductTypeById(@PathVariable Long productTypeId) {
         productTypeServicePort.deleteById(productTypeId);
     }
