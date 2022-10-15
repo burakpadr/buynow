@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.product.port;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.product.entity.ProductTypeAttributeGroup;
@@ -26,6 +28,11 @@ public class ProductTypeAttributeGroupServicePortImpl implements ProductTypeAttr
     @Override
     public ProductTypeAttributeGroup findByName(String name) {
         return productTypeAttributeGroupService.findByName(name);
+    }
+
+    @Override
+    public List<ProductTypeAttributeGroup> findByProductTypeId(Long productTypeId) {
+        return productTypeAttributeGroupService.findByProductTypeId(productTypeId);
     }
 
     @Override

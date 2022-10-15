@@ -1,5 +1,6 @@
 package com.padr.buynow.outbound.persistence.product.port;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class ProductTypeAttributeGroupPersistencePortImpl implements ProductTypeAttributeGroupPersistencePort {
-    
+
     private final ProductTypeAttributeGroupRepository productTypeAttributeGroupRepository;
 
     @Override
@@ -23,6 +24,11 @@ public class ProductTypeAttributeGroupPersistencePortImpl implements ProductType
     @Override
     public Optional<ProductTypeAttributeGroup> findByName(String name) {
         return productTypeAttributeGroupRepository.findByName(name);
+    }
+
+    @Override
+    public List<ProductTypeAttributeGroup> findByProductType(Long productTypeId) {
+        return productTypeAttributeGroupRepository.findByProductType(productTypeId);
     }
 
     @Override

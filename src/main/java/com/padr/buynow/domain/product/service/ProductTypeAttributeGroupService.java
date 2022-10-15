@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.product.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.product.entity.ProductTypeAttributeGroup;
@@ -34,6 +36,10 @@ public class ProductTypeAttributeGroupService {
     public ProductTypeAttributeGroup findByName(String name) {
         return productTypeAttributeGroupPersistencePort.findByName(name)
                 .orElseThrow(ProductTypeAttributeGroupNotFoundException::new);
+    }
+
+    public List<ProductTypeAttributeGroup> findByProductTypeId(Long productTypeId) {
+        return productTypeAttributeGroupPersistencePort.findByProductType(productTypeId);
     }
 
     public ProductTypeAttributeGroup update(Long id, ProductTypeAttributeGroup updateProductTypeAttributeGroup) {
