@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.product.controller;
+package com.padr.buynow.inbound.product.adapter;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +29,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/product-type-attr-groups")
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
-public class ProductTypeAttributeGroupController {
+public class ProductTypeAttributeGroupAdapter {
 
     private final ProductTypeAttributeGroupServicePort productTypeAttributeGroupServicePort;
     private final ProductTypeServicePort productTypeServicePort;

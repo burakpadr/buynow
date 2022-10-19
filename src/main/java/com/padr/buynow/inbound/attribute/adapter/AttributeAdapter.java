@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.attribute.controller;
+package com.padr.buynow.inbound.attribute.adapter;
 
 import javax.validation.Valid;
 
@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/attributes")
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
-public class AttributeController {
+public class AttributeAdapter {
     
     private final AttributeServicePort attributeServicePort;
     private final InputFieldTypeService inputFieldTypeService;

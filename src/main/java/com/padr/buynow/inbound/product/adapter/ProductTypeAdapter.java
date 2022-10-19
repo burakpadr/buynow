@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.product.controller;
+package com.padr.buynow.inbound.product.adapter;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/product-types")
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
-public class ProductTypeController {
+public class ProductTypeAdapter {
 
     private final ProductTypeServicePort productTypeServicePort;
 

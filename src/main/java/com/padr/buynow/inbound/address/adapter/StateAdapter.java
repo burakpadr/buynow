@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.address.controller;
+package com.padr.buynow.inbound.address.adapter;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/addresses/states")
 @RequiredArgsConstructor
-public class StateController {
+public class StateAdapter {
 
     private final StateServicePort stateServicePort;
 

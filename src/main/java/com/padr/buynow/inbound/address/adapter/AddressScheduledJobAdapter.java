@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.address.controller;
+package com.padr.buynow.inbound.address.adapter;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/addresses/scheduled")
 @ResponseStatus(HttpStatus.OK)
 @RequiredArgsConstructor
-public class AddressScheduledJobController {
+public class AddressScheduledJobAdapter {
 
     private final AddressScheduledJobServicePort addressScheduledJobServicePort;
 

@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.user.controller;
+package com.padr.buynow.inbound.user.adapter;
 
 import javax.validation.Valid;
 
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/user")
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
-public class UserController {
+public class UserAdapter {
 
     private final UserServicePort userServicePort;
 

@@ -1,4 +1,4 @@
-package com.padr.buynow.inbound.frontend.controller;
+package com.padr.buynow.inbound.frontend.adapter;
 
 import javax.validation.Valid;
 
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/input-field-types")
 @ResponseStatus(HttpStatus.OK)
 @RequiredArgsConstructor
-public class InputFieldTypeController {
+public class InputFieldTypeAdapter {
     
     private final InputFieldTypeServicePort inputFieldTypeServicePort;
 
