@@ -11,12 +11,14 @@ public class InputFieldTypeResponse {
     
     private Long id;
     private String name;
+    private Boolean hasMultipleValues;
     private Boolean isActive;
 
     public static InputFieldTypeResponse of(InputFieldType inputFieldType) {
         return InputFieldTypeResponse.builder()
                 .id(inputFieldType.getId())
                 .name(inputFieldType.getName())
+                .hasMultipleValues(inputFieldType.getHasMultipleValues())
                 .isActive(inputFieldType.getIsActive())
                 .build();
     } 

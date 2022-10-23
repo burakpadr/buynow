@@ -18,9 +18,13 @@ public class InputFieldTypeRequest {
     @NotEmpty
     private String name;
 
+    @NotNull
+    private Boolean hasMultipleValues;
+
     public InputFieldType to() {
         return InputFieldType.builder()
                 .name(name)
+                .hasMultipleValues(hasMultipleValues)
                 .build();
     }
 }
