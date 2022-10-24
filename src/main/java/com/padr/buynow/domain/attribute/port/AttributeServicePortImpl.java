@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.attribute.port;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.attribute.entity.Attribute;
@@ -26,6 +28,11 @@ public class AttributeServicePortImpl implements AttributeServicePort {
     @Override
     public Attribute findByName(String name) {
         return attributeService.findByName(name);
+    }
+
+    @Override
+    public List<Attribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
+        return attributeService.findByProductTypeAttrinuteGroupId(productTypeAttributeGroupId);
     }
 
     @Override

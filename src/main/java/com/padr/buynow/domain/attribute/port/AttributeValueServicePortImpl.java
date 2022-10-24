@@ -16,8 +16,8 @@ public class AttributeValueServicePortImpl implements AttributeValueServicePort 
     private final AttributeValueService attributeValueService;
 
     @Override
-    public AttributeValue create(AttributeValue attributeValue) {
-        return attributeValueService.create(attributeValue);
+    public List<AttributeValue> create(List<AttributeValue> attributeValues) {
+        return attributeValueService.create(attributeValues);
     }
 
     @Override

@@ -1,18 +1,14 @@
 package com.padr.buynow.domain.attribute.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Transient;
 
 import com.padr.buynow.domain.frontend.entity.InputFieldType;
 import com.padr.buynow.domain.product.entity.ProductTypeAttributeGroup;
@@ -46,7 +42,6 @@ public class Attribute {
     @OneToOne
     private InputFieldType inputFieldType;
 
-    @ManyToMany(mappedBy = "attributes")
-    @Transient
-    private List<ProductTypeAttributeGroup> productTypeAttributeGroups;
+    @ManyToOne
+    private ProductTypeAttributeGroup productTypeAttributeGroup;
 }

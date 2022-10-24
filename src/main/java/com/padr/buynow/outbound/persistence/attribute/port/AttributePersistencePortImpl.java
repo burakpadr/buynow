@@ -1,5 +1,6 @@
 package com.padr.buynow.outbound.persistence.attribute.port;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
@@ -23,6 +24,11 @@ public class AttributePersistencePortImpl implements AttributePersistencePort {
     @Override
     public Optional<Attribute> findByName(String name) {
         return attributeRepository.findByName(name);
+    }
+
+    @Override
+    public List<Attribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId) {
+        return attributeRepository.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 
     @Override

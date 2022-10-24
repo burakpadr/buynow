@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.attribute.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.attribute.entity.Attribute;
@@ -30,6 +32,10 @@ public class AttributeService {
 
     public Attribute findByName(String name) {
         return attributePersistencePort.findByName(name).orElseThrow(AttributeNotFoundException::new);
+    }
+
+    public List<Attribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
+        return attributePersistencePort.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 
     public Attribute update(Long id, Attribute updateAttribute) {

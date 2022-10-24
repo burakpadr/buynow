@@ -6,7 +6,7 @@ import com.padr.buynow.domain.attribute.entity.AttributeValue;
 
 public interface AttributeValueServicePort {
     
-    AttributeValue create(AttributeValue attributeValue);
+    List<AttributeValue> create(List<AttributeValue> attributeValues);
 
     AttributeValue findById(Long id);
 

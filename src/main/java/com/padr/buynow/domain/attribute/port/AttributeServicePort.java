@@ -1,5 +1,7 @@
 package com.padr.buynow.domain.attribute.port;
 
+import java.util.List;
+
 import com.padr.buynow.domain.attribute.entity.Attribute;
 
 public interface AttributeServicePort {
@@ -9,6 +11,8 @@ public interface AttributeServicePort {
     Attribute findById(Long id);
 
     Attribute findByName(String name);
+
+    List<Attribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId);
 
     Attribute update(Long id, Attribute updateAttribute);
 

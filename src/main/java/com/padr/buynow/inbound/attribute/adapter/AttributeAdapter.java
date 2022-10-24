@@ -1,5 +1,8 @@
 package com.padr.buynow.inbound.attribute.adapter;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -27,7 +30,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @ResponseStatus(HttpStatus.OK)
 public class AttributeAdapter {
-    
+
     private final AttributeServicePort attributeServicePort;
     private final InputFieldTypeService inputFieldTypeService;
 
@@ -42,17 +45,24 @@ public class AttributeAdapter {
     }
 
     @GetMapping("/by/id/{id}")
-    public AttributeResponse findById(@PathVariable Long id){
+    public AttributeResponse findById(@PathVariable Long id) {
         return AttributeResponse.of(attributeServicePort.findById(id));
     }
 
     @GetMapping("/by/name/{name}")
-    public AttributeResponse findByName(@PathVariable String name){
+    public AttributeResponse findByName(@PathVariable String name) {
         return AttributeResponse.of(attributeServicePort.findByName(name));
     }
 
-    @PutMapping("/id/{id}")
-    public AttributeResponse update(@PathVariable Long id, @Valid @RequestBody AttributeRequest updateAttributeRequest) {
+    @GetMapping("/by/product-type-attribute-group/{id}")
+    public List<AttributeResponse> findByProductTypeAttributeGroupId(@PathVariable Long id) {
+        return attributeServicePort.findByProductTypeAttrinuteGroupId(id).stream().map(AttributeResponse::of)
+                .collect(Collectors.toList());
+    }
+
+    @PutMapping("/by/id/{id}")
+    public AttributeResponse update(@PathVariable Long id,
+            @Valid @RequestBody AttributeRequest updateAttributeRequest) {
         InputFieldType inputFieldType = inputFieldTypeService.findById(updateAttributeRequest.getInputFieldTypeId());
 
         Attribute attribute = updateAttributeRequest.to();

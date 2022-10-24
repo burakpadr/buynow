@@ -30,4 +30,9 @@ public class AttributeValuePersistencePortImpl implements AttributeValuePersiste
     public AttributeValue save(AttributeValue attributeValue) {
         return attributeValueRepository.save(attributeValue);
     }
+
+    @Override
+    public List<AttributeValue> saveAll(List<AttributeValue> attributeValues) {
+        return attributeValueRepository.saveAll(attributeValues);
+    }
 }

@@ -12,4 +12,6 @@ public interface AttributeValuePersistencePort {
     List<AttributeValue> findByAttributeIdAndIsActive(Long attributeId, Boolean isActive);
     
     AttributeValue save(AttributeValue attributeValue);
+
+    List<AttributeValue> saveAll(List<AttributeValue> attributeValues);
 }

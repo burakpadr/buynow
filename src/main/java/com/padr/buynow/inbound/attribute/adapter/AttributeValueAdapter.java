@@ -1,5 +1,6 @@
 package com.padr.buynow.inbound.attribute.adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,13 +36,18 @@ public class AttributeValueAdapter {
     private final AttributeServicePort attributeServicePort;
 
     @PostMapping
-    public AttributeValueResponse create(@Valid @RequestBody AttributeValueRequest attributeValueRequest) {
-        Attribute attribute = attributeServicePort.findById(attributeValueRequest.getAttributeId());
+    public List<AttributeValueResponse> create(@Valid @RequestBody List<AttributeValueRequest> attributeValuesRequest) {
+        List<AttributeValue> attributeValues = new ArrayList<>();
 
-        AttributeValue attributeValue = attributeValueRequest.to();
-        attributeValue.setAttribute(attribute);
+        attributeValuesRequest.parallelStream().forEach(attributeValueRequest -> {
+            Attribute attribute = attributeServicePort.findById(attributeValueRequest.getAttributeId());
 
-        return AttributeValueResponse.of(attributeValueServicePort.create(attributeValue));
+            AttributeValue attributeValue = attributeValueRequest.to();
+            attributeValue.setAttribute(attribute);
+        });
+
+        return attributeValueServicePort.create(attributeValues).stream().map(AttributeValueResponse::of)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/by/id/{id}")
@@ -55,8 +61,9 @@ public class AttributeValueAdapter {
                 .collect(Collectors.toList());
     }
 
-    @PutMapping("/by/id/{id}") 
-    public AttributeValueResponse update(@PathVariable Long id, @Valid @RequestBody AttributeValueRequest updateAttributeValueRequest) {
+    @PutMapping("/by/id/{id}")
+    public AttributeValueResponse update(@PathVariable Long id,
+            @Valid @RequestBody AttributeValueRequest updateAttributeValueRequest) {
         Attribute attribute = attributeServicePort.findById(updateAttributeValueRequest.getAttributeId());
 
         AttributeValue updateAttributeValue = updateAttributeValueRequest.to();

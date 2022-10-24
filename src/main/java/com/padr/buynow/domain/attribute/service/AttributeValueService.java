@@ -16,10 +16,12 @@ public class AttributeValueService {
     
     private final AttributeValuePersistencePort attributeValuePersistencePort;
 
-    public AttributeValue create(AttributeValue attributeValue) {
-        attributeValue.setIsActive(true);
+    public List<AttributeValue> create(List<AttributeValue> attributeValues) {
+        attributeValues.parallelStream().forEach(attributeValue -> {
+            attributeValue.setIsActive(true);
+        });
 
-        return attributeValuePersistencePort.save(attributeValue);
+        return attributeValuePersistencePort.saveAll(attributeValues);
     }
 
     public AttributeValue findById(Long id) {
