@@ -4,39 +4,39 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.product.entity.Attribute;
-import com.padr.buynow.domain.product.service.AttributeService;
+import com.padr.buynow.domain.product.entity.ProductTypeAttribute;
+import com.padr.buynow.domain.product.service.ProductTypeAttributeService;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class AttributeServicePortImpl implements AttributeServicePort {
+public class ProductTypeAttributeServicePortImpl implements ProductTypeAttributeServicePort {
 
-    private final AttributeService attributeService;
+    private final ProductTypeAttributeService attributeService;
 
     @Override
-    public Attribute create(Attribute attribute) {
+    public ProductTypeAttribute create(ProductTypeAttribute attribute) {
         return attributeService.create(attribute);
     }
 
     @Override
-    public Attribute findById(Long id) {
+    public ProductTypeAttribute findById(Long id) {
         return attributeService.findById(id);
     }
 
     @Override
-    public Attribute findByName(String name) {
+    public ProductTypeAttribute findByName(String name) {
         return attributeService.findByName(name);
     }
 
     @Override
-    public List<Attribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
+    public List<ProductTypeAttribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
         return attributeService.findByProductTypeAttrinuteGroupId(productTypeAttributeGroupId);
     }
 
     @Override
-    public Attribute update(Long id, Attribute updateAttribute) {
+    public ProductTypeAttribute update(Long id, ProductTypeAttribute updateAttribute) {
         return attributeService.update(id, updateAttribute);
     }
 

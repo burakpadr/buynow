@@ -44,5 +44,5 @@ public class ProductTypeAttributeGroup {
     private ProductType productType;
 
     @OneToMany(mappedBy = "productTypeAttributeGroup", fetch = FetchType.LAZY)
-    private List<Attribute> attributes;
+    private List<ProductTypeAttribute> productTypeAttributes;
 }

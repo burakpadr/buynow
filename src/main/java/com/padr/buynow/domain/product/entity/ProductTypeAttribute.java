@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Attribute {
+public class ProductTypeAttribute {
     
     @Id
     @SequenceGenerator(name = "attribute_id_seq", sequenceName = "attribute_id_seq")
@@ -48,6 +48,6 @@ public class Attribute {
     @ManyToOne
     private ProductTypeAttributeGroup productTypeAttributeGroup;
 
-    @OneToMany(mappedBy = "attribute", fetch = FetchType.LAZY)
-    private List<AttributeValue> attributeValues;
+    @OneToMany(mappedBy = "productTypeAttribute", fetch = FetchType.LAZY)
+    private List<ProductTypeAttributeValue> productTypeAttributeValues;
 }

@@ -1,10 +1,10 @@
-package com.padr.buynow.inbound.attribute.model.request;
+package com.padr.buynow.inbound.product.model.request;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import com.padr.buynow.domain.product.entity.AttributeValue;
+import com.padr.buynow.domain.product.entity.ProductTypeAttributeValue;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttributeValueRequest {
+public class ProductTypeAttributeValueRequest {
     
     @NotNull
     @NotEmpty
@@ -23,8 +23,8 @@ public class AttributeValueRequest {
     @Positive
     private Long attributeId;
 
-    public AttributeValue to() {
-        return AttributeValue.builder()
+    public ProductTypeAttributeValue to() {
+        return ProductTypeAttributeValue.builder()
                 .value(value)
                 .build();
     }

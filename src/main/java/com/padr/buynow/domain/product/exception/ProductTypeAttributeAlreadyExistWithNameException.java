@@ -2,12 +2,12 @@ package com.padr.buynow.domain.product.exception;
 
 import com.padr.buynow.domain.common.exception.BaseException;
 
-public class AttributeAlreadyExistWithNameException extends BaseException {
+public class ProductTypeAttributeAlreadyExistWithNameException extends BaseException {
     
-    private static final String ERROR = "ATTRIBUTE_ALREADY_EXIST_WITH_NAME_EXCEPTION";
+    private static final String ERROR = "PRODUCT_TYPE_ATTRIBUTE_ALREADY_EXIST_WITH_NAME_EXCEPTION";
     private static final String MESSAGE = "There is an attribute associated with this name!";
 
-    public AttributeAlreadyExistWithNameException() {
+    public ProductTypeAttributeAlreadyExistWithNameException() {
         super(ERROR, MESSAGE);
     }
 }

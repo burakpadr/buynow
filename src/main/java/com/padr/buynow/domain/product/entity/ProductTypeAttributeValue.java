@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AttributeValue {
+public class ProductTypeAttributeValue {
     
     @Id
     @SequenceGenerator(name = "attribute_value_id_seq", sequenceName = "attribute_value_id_seq")
@@ -34,5 +34,5 @@ public class AttributeValue {
     private Boolean isActive;
 
     @ManyToOne
-    private Attribute attribute;
+    private ProductTypeAttribute productTypeAttribute;
 }

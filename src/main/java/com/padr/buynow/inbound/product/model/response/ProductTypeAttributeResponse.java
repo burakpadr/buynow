@@ -1,6 +1,6 @@
-package com.padr.buynow.inbound.attribute.model.response;
+package com.padr.buynow.inbound.product.model.response;
 
-import com.padr.buynow.domain.product.entity.Attribute;
+import com.padr.buynow.domain.product.entity.ProductTypeAttribute;
 import com.padr.buynow.inbound.frontend.model.response.InputFieldTypeResponse;
 
 import lombok.Builder;
@@ -8,15 +8,15 @@ import lombok.Data;
 
 @Data
 @Builder
-public class AttributeResponse {
+public class ProductTypeAttributeResponse {
     
     private Long id;
     private String name;
     private String label;
     private InputFieldTypeResponse inputFieldType;
 
-    public static AttributeResponse of(Attribute attribute) {
-        return AttributeResponse.builder() 
+    public static ProductTypeAttributeResponse of(ProductTypeAttribute attribute) {
+        return ProductTypeAttributeResponse.builder() 
                 .id(attribute.getId())
                 .name(attribute.getName())
                 .label(attribute.getLabel())
