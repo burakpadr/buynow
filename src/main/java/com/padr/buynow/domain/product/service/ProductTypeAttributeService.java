@@ -34,7 +34,7 @@ public class ProductTypeAttributeService {
         return attributePersistencePort.findByName(name).orElseThrow(ProductTypeAttributeNotFoundException::new);
     }
 
-    public List<ProductTypeAttribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
+    public List<ProductTypeAttribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId) {
         return attributePersistencePort.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 

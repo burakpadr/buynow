@@ -12,7 +12,7 @@ public interface ProductTypeAttributeServicePort {
 
     ProductTypeAttribute findByName(String name);
 
-    List<ProductTypeAttribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId);
+    List<ProductTypeAttribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId);
 
     ProductTypeAttribute update(Long id, ProductTypeAttribute updateAttribute);
 

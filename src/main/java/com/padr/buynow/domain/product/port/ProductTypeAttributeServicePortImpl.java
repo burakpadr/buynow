@@ -31,8 +31,8 @@ public class ProductTypeAttributeServicePortImpl implements ProductTypeAttribute
     }
 
     @Override
-    public List<ProductTypeAttribute> findByProductTypeAttrinuteGroupId(Long productTypeAttributeGroupId) {
-        return attributeService.findByProductTypeAttrinuteGroupId(productTypeAttributeGroupId);
+    public List<ProductTypeAttribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId) {
+        return attributeService.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 
     @Override

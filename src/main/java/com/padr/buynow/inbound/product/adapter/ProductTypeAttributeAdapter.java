@@ -56,7 +56,7 @@ public class ProductTypeAttributeAdapter {
 
     @GetMapping("/by/product-type-attribute-group/{id}")
     public List<ProductTypeAttributeResponse> findByProductTypeAttributeGroupId(@PathVariable Long id) {
-        return productTypeAttributeServicePort.findByProductTypeAttrinuteGroupId(id)
+        return productTypeAttributeServicePort.findByProductTypeAttributeGroupId(id)
                 .stream()
                 .map(ProductTypeAttributeResponse::of)
                 .collect(Collectors.toList());
