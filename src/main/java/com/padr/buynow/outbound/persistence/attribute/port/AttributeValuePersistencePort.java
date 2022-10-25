@@ -3,7 +3,7 @@ package com.padr.buynow.outbound.persistence.attribute.port;
 import java.util.List;
 import java.util.Optional;
 
-import com.padr.buynow.domain.attribute.entity.AttributeValue;
+import com.padr.buynow.domain.product.entity.AttributeValue;
 
 public interface AttributeValuePersistencePort {
     

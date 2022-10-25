@@ -1,4 +1,4 @@
-package com.padr.buynow.domain.attribute.entity;
+package com.padr.buynow.domain.product.entity;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.padr.buynow.domain.frontend.entity.InputFieldType;
-import com.padr.buynow.domain.product.entity.ProductTypeAttributeGroup;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

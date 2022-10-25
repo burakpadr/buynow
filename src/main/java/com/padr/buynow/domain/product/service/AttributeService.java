@@ -1,12 +1,12 @@
-package com.padr.buynow.domain.attribute.service;
+package com.padr.buynow.domain.product.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.padr.buynow.domain.attribute.entity.Attribute;
-import com.padr.buynow.domain.attribute.exception.AttributeAlreadyExistWithNameException;
-import com.padr.buynow.domain.attribute.exception.AttributeNotFoundException;
+import com.padr.buynow.domain.product.entity.Attribute;
+import com.padr.buynow.domain.product.exception.AttributeAlreadyExistWithNameException;
+import com.padr.buynow.domain.product.exception.AttributeNotFoundException;
 import com.padr.buynow.outbound.persistence.attribute.port.AttributePersistencePort;
 
 import lombok.RequiredArgsConstructor;

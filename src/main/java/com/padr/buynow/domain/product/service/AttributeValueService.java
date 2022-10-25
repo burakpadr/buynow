@@ -1,11 +1,11 @@
-package com.padr.buynow.domain.attribute.service;
+package com.padr.buynow.domain.product.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.padr.buynow.domain.attribute.entity.AttributeValue;
-import com.padr.buynow.domain.attribute.exception.AttributeValueNotFoundException;
+import com.padr.buynow.domain.product.entity.AttributeValue;
+import com.padr.buynow.domain.product.exception.AttributeValueNotFoundException;
 import com.padr.buynow.outbound.persistence.attribute.port.AttributeValuePersistencePort;
 
 import lombok.RequiredArgsConstructor;

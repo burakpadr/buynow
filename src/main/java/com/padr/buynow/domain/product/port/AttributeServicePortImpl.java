@@ -1,11 +1,11 @@
-package com.padr.buynow.domain.attribute.port;
+package com.padr.buynow.domain.product.port;
 
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.attribute.entity.Attribute;
-import com.padr.buynow.domain.attribute.service.AttributeService;
+import com.padr.buynow.domain.product.entity.Attribute;
+import com.padr.buynow.domain.product.service.AttributeService;
 
 import lombok.RequiredArgsConstructor;
 

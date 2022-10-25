@@ -1,8 +1,8 @@
-package com.padr.buynow.domain.attribute.port;
+package com.padr.buynow.domain.product.port;
 
 import java.util.List;
 
-import com.padr.buynow.domain.attribute.entity.Attribute;
+import com.padr.buynow.domain.product.entity.Attribute;
 
 public interface AttributeServicePort {
     

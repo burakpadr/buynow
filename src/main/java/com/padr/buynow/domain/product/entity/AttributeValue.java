@@ -1,4 +1,4 @@
-package com.padr.buynow.domain.attribute.entity;
+package com.padr.buynow.domain.product.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

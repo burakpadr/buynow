@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.attribute.entity.AttributeValue;
+import com.padr.buynow.domain.product.entity.AttributeValue;
 import com.padr.buynow.outbound.persistence.attribute.repository.AttributeValueRepository;
 
 import lombok.RequiredArgsConstructor;

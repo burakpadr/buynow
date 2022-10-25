@@ -1,4 +1,4 @@
-package com.padr.buynow.domain.attribute.exception;
+package com.padr.buynow.domain.product.exception;
 
 import com.padr.buynow.domain.common.exception.BaseException;
 

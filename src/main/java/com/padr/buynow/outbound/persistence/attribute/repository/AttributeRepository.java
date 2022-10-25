@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.padr.buynow.domain.attribute.entity.Attribute;
+import com.padr.buynow.domain.product.entity.Attribute;
 
 @Repository
 public interface AttributeRepository extends JpaRepository<Attribute, Long> {

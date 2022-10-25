@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import com.padr.buynow.domain.attribute.entity.AttributeValue;
+import com.padr.buynow.domain.product.entity.AttributeValue;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -3,7 +3,7 @@ package com.padr.buynow.inbound.attribute.model.request;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.padr.buynow.domain.attribute.entity.Attribute;
+import com.padr.buynow.domain.product.entity.Attribute;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

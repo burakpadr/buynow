@@ -1,6 +1,6 @@
 package com.padr.buynow.inbound.attribute.model.response;
 
-import com.padr.buynow.domain.attribute.entity.AttributeValue;
+import com.padr.buynow.domain.product.entity.AttributeValue;
 
 import lombok.Builder;
 import lombok.Data;
