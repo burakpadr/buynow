@@ -18,8 +18,9 @@ public class ProductTypeAttributeService {
     private final ProductTypeAttributePersistencePort productTypeAttributePersistencePort;
 
     public ProductTypeAttribute create(ProductTypeAttribute attribute) {
-        productTypeAttributePersistencePort.findByName(attribute.getName())
-                .orElseThrow(ProductTypeAttributeAlreadyExistWithNameException::new);
+        productTypeAttributePersistencePort.findByName(attribute.getName()).ifPresent(p -> {
+            throw new ProductTypeAttributeAlreadyExistWithNameException();
+        });
 
         attribute.setIsActive(true);
 
