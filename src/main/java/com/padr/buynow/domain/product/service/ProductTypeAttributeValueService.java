@@ -13,23 +13,24 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ProductTypeAttributeValueService {
-    
-    private final ProductTypeAttributeValuePersistencePort attributeValuePersistencePort;
+
+    private final ProductTypeAttributeValuePersistencePort productTypeAttributeValuePersistencePort;
 
     public List<ProductTypeAttributeValue> create(List<ProductTypeAttributeValue> attributeValues) {
         attributeValues.parallelStream().forEach(attributeValue -> {
             attributeValue.setIsActive(true);
         });
 
-        return attributeValuePersistencePort.saveAll(attributeValues);
+        return productTypeAttributeValuePersistencePort.saveAll(attributeValues);
     }
 
     public ProductTypeAttributeValue findById(Long id) {
-        return attributeValuePersistencePort.findById(id).orElseThrow(ProductTypeAttributeValueNotFoundException::new);
+        return productTypeAttributeValuePersistencePort.findById(id)
+                .orElseThrow(ProductTypeAttributeValueNotFoundException::new);
     }
 
     public List<ProductTypeAttributeValue> findByAttributeId(Long attributeId) {
-        return attributeValuePersistencePort.findByProductTypeAttributeIdAndIsActive(attributeId, true);
+        return productTypeAttributeValuePersistencePort.findByProductTypeAttributeIdAndIsActive(attributeId, true);
     }
 
     public ProductTypeAttributeValue update(Long id, ProductTypeAttributeValue updateAttributeValue) {
@@ -37,7 +38,7 @@ public class ProductTypeAttributeValueService {
 
         attributeValue.setValue(updateAttributeValue.getValue());
 
-        return attributeValuePersistencePort.save(attributeValue);
+        return productTypeAttributeValuePersistencePort.save(attributeValue);
     }
 
     public void deleteById(Long id) {
@@ -45,6 +46,6 @@ public class ProductTypeAttributeValueService {
 
         attributeValue.setIsActive(false);
 
-        attributeValuePersistencePort.save(attributeValue);
+        productTypeAttributeValuePersistencePort.save(attributeValue);
     }
 }

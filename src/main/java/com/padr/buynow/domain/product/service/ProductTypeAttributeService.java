@@ -15,33 +15,34 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductTypeAttributeService {
 
-    private final ProductTypeAttributePersistencePort attributePersistencePort;
+    private final ProductTypeAttributePersistencePort productTypeAttributePersistencePort;
 
     public ProductTypeAttribute create(ProductTypeAttribute attribute) {
-        attributePersistencePort.findByName(attribute.getName())
+        productTypeAttributePersistencePort.findByName(attribute.getName())
                 .orElseThrow(ProductTypeAttributeAlreadyExistWithNameException::new);
 
         attribute.setIsActive(true);
 
-        return attributePersistencePort.save(attribute);
+        return productTypeAttributePersistencePort.save(attribute);
     }
 
     public ProductTypeAttribute findById(Long id) {
-        return attributePersistencePort.findById(id).orElseThrow(ProductTypeAttributeNotFoundException::new);
+        return productTypeAttributePersistencePort.findById(id).orElseThrow(ProductTypeAttributeNotFoundException::new);
     }
 
     public ProductTypeAttribute findByName(String name) {
-        return attributePersistencePort.findByName(name).orElseThrow(ProductTypeAttributeNotFoundException::new);
+        return productTypeAttributePersistencePort.findByName(name)
+                .orElseThrow(ProductTypeAttributeNotFoundException::new);
     }
 
     public List<ProductTypeAttribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId) {
-        return attributePersistencePort.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
+        return productTypeAttributePersistencePort.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 
     public ProductTypeAttribute update(Long id, ProductTypeAttribute updateAttribute) {
         ProductTypeAttribute attribute = findById(id);
 
-        attributePersistencePort.findByName(updateAttribute.getName()).ifPresent(a -> {
+        productTypeAttributePersistencePort.findByName(updateAttribute.getName()).ifPresent(a -> {
             if (a.getId() != attribute.getId())
                 throw new ProductTypeAttributeAlreadyExistWithNameException();
         });
@@ -50,7 +51,7 @@ public class ProductTypeAttributeService {
         attribute.setLabel(updateAttribute.getLabel());
         attribute.setInputFieldType(updateAttribute.getInputFieldType());
 
-        return attributePersistencePort.save(attribute);
+        return productTypeAttributePersistencePort.save(attribute);
     }
 
     public void deleteById(Long id) {
@@ -58,6 +59,6 @@ public class ProductTypeAttributeService {
 
         attribute.setIsActive(false);
 
-        attributePersistencePort.save(attribute);
+        productTypeAttributePersistencePort.save(attribute);
     }
 }
