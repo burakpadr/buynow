@@ -33,7 +33,7 @@ import lombok.RequiredArgsConstructor;
 public class ProductTypeAttributeValueAdapter {
 
     private final ProductTypeAttributeValueServicePort productTypeAttributeValueServicePort;
-    private final ProductTypeAttributeServicePort ProductTypeAttributeServicePort;
+    private final ProductTypeAttributeServicePort productTypeAttributeServicePort;
 
     @PostMapping
     public List<ProductTypeAttributeValueResponse> create(
@@ -41,7 +41,7 @@ public class ProductTypeAttributeValueAdapter {
         List<ProductTypeAttributeValue> attributeValues = new ArrayList<>();
 
         attributeValuesRequest.parallelStream().forEach(attributeValueRequest -> {
-            ProductTypeAttribute attribute = ProductTypeAttributeServicePort
+            ProductTypeAttribute attribute = productTypeAttributeServicePort
                     .findById(attributeValueRequest.getAttributeId());
 
             ProductTypeAttributeValue attributeValue = attributeValueRequest.to();
@@ -68,7 +68,7 @@ public class ProductTypeAttributeValueAdapter {
     @PutMapping("/by/id/{id}")
     public ProductTypeAttributeValueResponse update(@PathVariable Long id,
             @Valid @RequestBody ProductTypeAttributeValueRequest updateAttributeValueRequest) {
-        ProductTypeAttribute attribute = ProductTypeAttributeServicePort
+        ProductTypeAttribute attribute = productTypeAttributeServicePort
                 .findById(updateAttributeValueRequest.getAttributeId());
 
         ProductTypeAttributeValue updateAttributeValue = updateAttributeValueRequest.to();
