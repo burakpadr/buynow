@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class AuctionNoticeCancellation {
-    
+
     @Id
     @SequenceGenerator(name = "auction_notice_cancellation_id_seq", sequenceName = "auction_notice_cancellation_id_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auction_notice_cancellation_id_seq")
@@ -28,4 +28,7 @@ public class AuctionNoticeCancellation {
 
     @Column
     private String reason;
+
+    @Column
+    private Boolean isActive;
 }

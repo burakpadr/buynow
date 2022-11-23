@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class AuctionNotice {
-    
+
     @Id
     @SequenceGenerator(name = "auction_notice_id_seq", sequenceName = "auction_notice_id_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auction_notice_id_seq")
@@ -61,4 +61,7 @@ public class AuctionNotice {
 
     @OneToOne
     private AuctionNoticeCancellation auctionNoticeCancellation;
+
+    @Column
+    private Boolean isActive;
 }
