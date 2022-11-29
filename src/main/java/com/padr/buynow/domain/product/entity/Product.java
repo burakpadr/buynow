@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import com.padr.buynow.domain.address.entity.Address;
 import com.padr.buynow.domain.notice.constant.NoticeType;
+import com.padr.buynow.domain.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.user.entity.User;
 
 import lombok.AllArgsConstructor;
@@ -61,4 +62,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ProductAttribute> productAttributes;
+
+    @OneToOne
+    private AuctionNotice auctionNotice;
 }

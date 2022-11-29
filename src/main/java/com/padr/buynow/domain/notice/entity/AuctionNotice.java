@@ -45,10 +45,10 @@ public class AuctionNotice {
     private AuctionNoticeStep step;
 
     @Column
-    private Long auctionTimeSeconds;
+    private Long auctionTimeMinutes;
 
     @Column
-    private LocalDateTime startingAt;
+    private LocalDateTime startedAt;
 
     @Column
     private LocalDateTime originalExpireAt;
@@ -59,9 +59,9 @@ public class AuctionNotice {
     @Column
     private Long minimumBidAccrual;
 
-    @OneToOne
-    private AuctionNoticeCancellation auctionNoticeCancellation;
-
     @Column
     private Boolean isActive;
+
+    @OneToOne
+    private AuctionNoticeCancellation auctionNoticeCancellation;
 }
