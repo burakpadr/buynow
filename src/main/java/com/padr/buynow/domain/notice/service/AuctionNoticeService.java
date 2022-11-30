@@ -7,8 +7,11 @@ import org.springframework.stereotype.Service;
 import com.padr.buynow.domain.notice.constant.AuctionNoticeStep;
 import com.padr.buynow.domain.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.notice.exception.AuctionNoticeNotFoundException;
+import com.padr.buynow.domain.notice.exception.NoticeIsLiveException;
 import com.padr.buynow.domain.notice.exception.NoticeIsNotLiveException;
-import com.padr.buynow.domain.notice.exception.AuctionHasAlreadyStartedException;
+import com.padr.buynow.domain.notice.exception.StepShouldBeWaitingForBidException;
+import com.padr.buynow.domain.notice.exception.StepShouldBeWaitingForPaymentException;
+import com.padr.buynow.domain.notice.exception.StepShouldBeInAuctionException;
 import com.padr.buynow.outbound.persistence.notice.port.AuctionNoticePersistencePort;
 
 import lombok.RequiredArgsConstructor;
@@ -39,9 +42,8 @@ public class AuctionNoticeService {
             auctionNotice.setMinimumBidAccrual(updateAuctionNotice.getMinimumBidAccrual());
 
             return auctionNoticePersistencePort.save(auctionNotice);
-        }
-        else
-            throw new AuctionHasAlreadyStartedException();
+        } else
+            throw new StepShouldBeWaitingForBidException();
     }
 
     public void deleteById(Long id) {
@@ -52,22 +54,50 @@ public class AuctionNoticeService {
         auctionNoticePersistencePort.save(auctionNotice);
     }
 
-    public AuctionNotice startAuction(Long id) {
+    public void startTheAuction(Long id) {
         AuctionNotice auctionNotice = findById(id);
 
         if (auctionNotice.getIsPublished()) {
             if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_BID)) {
                 auctionNotice.setStartedAt(LocalDateTime.now());
                 auctionNotice.setExpiredAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
-                auctionNotice.setOriginalExpireAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
+                auctionNotice
+                        .setOriginalExpireAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
                 auctionNotice.setStep(AuctionNoticeStep.IN_AUCTION);
 
-                return auctionNoticePersistencePort.save(auctionNotice);
-            }
-            else
-                throw new AuctionHasAlreadyStartedException();
-        }   
-        else
+                auctionNoticePersistencePort.save(auctionNotice);
+            } else
+                throw new StepShouldBeWaitingForBidException();
+        } else
             throw new NoticeIsNotLiveException();
+    }
+
+    public void finishTheAuction(Long id) {
+        AuctionNotice auctionNotice = findById(id);
+
+        if (auctionNotice.getIsPublished()) {
+            if (auctionNotice.getStep().equals(AuctionNoticeStep.IN_AUCTION)) {
+                auctionNotice.setIsPublished(false);
+                auctionNotice.setStep(AuctionNoticeStep.WAITING_FOR_PAYMENT);
+
+                auctionNoticePersistencePort.save(auctionNotice);
+            } else
+                throw new StepShouldBeInAuctionException();
+        } else
+            throw new NoticeIsNotLiveException();
+    }
+
+    public void completeTheAuction(Long id) {
+        AuctionNotice auctionNotice = findById(id);
+
+        if (!auctionNotice.getIsPublished()) {
+            if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_PAYMENT)) {
+                auctionNotice.setStep(AuctionNoticeStep.SOLD);
+
+                auctionNoticePersistencePort.save(auctionNotice);
+            } else
+                throw new StepShouldBeWaitingForPaymentException();
+        } else
+            throw new NoticeIsLiveException();
     }
 }
