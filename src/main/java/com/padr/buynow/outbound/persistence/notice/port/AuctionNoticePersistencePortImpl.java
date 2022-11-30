@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.notice.entity.AuctionNotice;
+import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
 import com.padr.buynow.outbound.persistence.notice.repository.AuctionNoticeRepository;
 
 import lombok.RequiredArgsConstructor;

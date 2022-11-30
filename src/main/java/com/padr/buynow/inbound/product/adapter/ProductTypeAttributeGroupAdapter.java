@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.padr.buynow.domain.product.entity.ProductType;
-import com.padr.buynow.domain.product.entity.ProductTypeAttributeGroup;
-import com.padr.buynow.domain.product.port.ProductTypeAttributeGroupServicePort;
-import com.padr.buynow.domain.product.port.ProductTypeServicePort;
+import com.padr.buynow.domain.core.product.entity.ProductType;
+import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeGroup;
+import com.padr.buynow.domain.core.product.port.ProductTypeAttributeGroupServicePort;
+import com.padr.buynow.domain.core.product.port.ProductTypeServicePort;
 import com.padr.buynow.inbound.product.model.request.ProductTypeAttributeGroupRequest;
 import com.padr.buynow.inbound.product.model.response.ProductTypeAttributeGroupResponse;
 

@@ -2,7 +2,7 @@ package com.padr.buynow.outbound.persistence.user.port;
 
 import java.util.Optional;
 
-import com.padr.buynow.domain.user.entity.User;
+import com.padr.buynow.domain.core.user.entity.User;
 
 public interface UserPersistencePort {
 

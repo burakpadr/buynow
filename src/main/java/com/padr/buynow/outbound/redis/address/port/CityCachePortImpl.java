@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.address.entity.City;
+import com.padr.buynow.domain.core.address.entity.City;
 import com.padr.buynow.outbound.redis.address.repository.CityCacheRepository;
 
 import lombok.RequiredArgsConstructor;

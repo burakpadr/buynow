@@ -2,7 +2,7 @@ package com.padr.buynow.inbound.user.model.response;
 
 import java.time.LocalDate;
 
-import com.padr.buynow.domain.user.entity.User;
+import com.padr.buynow.domain.core.user.entity.User;
 import com.padr.buynow.inbound.address.model.response.AddressResponse;
 
 import lombok.Builder;

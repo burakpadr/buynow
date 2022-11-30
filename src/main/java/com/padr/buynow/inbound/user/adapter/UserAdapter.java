@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.padr.buynow.domain.user.port.UserServicePort;
+import com.padr.buynow.domain.core.user.port.UserServicePort;
 import com.padr.buynow.inbound.user.model.request.UserRequest;
 import com.padr.buynow.inbound.user.model.response.UserResponse;
 

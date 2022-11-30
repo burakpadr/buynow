@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.padr.buynow.domain.frontend.port.InputFieldTypeServicePort;
+import com.padr.buynow.domain.core.frontend.port.InputFieldTypeServicePort;
 import com.padr.buynow.inbound.frontend.model.request.InputFieldTypeRequest;
 import com.padr.buynow.inbound.frontend.model.response.InputFieldTypeResponse;
 

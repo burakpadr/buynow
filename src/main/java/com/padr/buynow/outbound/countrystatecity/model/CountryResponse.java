@@ -1,6 +1,6 @@
 package com.padr.buynow.outbound.countrystatecity.model;
 
-import com.padr.buynow.domain.address.entity.Country;
+import com.padr.buynow.domain.core.address.entity.Country;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

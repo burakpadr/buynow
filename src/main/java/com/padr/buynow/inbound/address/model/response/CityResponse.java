@@ -1,6 +1,6 @@
 package com.padr.buynow.inbound.address.model.response;
 
-import com.padr.buynow.domain.address.entity.City;
+import com.padr.buynow.domain.core.address.entity.City;
 
 import lombok.Builder;
 import lombok.Data;

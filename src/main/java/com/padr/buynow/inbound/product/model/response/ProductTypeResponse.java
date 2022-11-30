@@ -3,7 +3,7 @@ package com.padr.buynow.inbound.product.model.response;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.padr.buynow.domain.product.entity.ProductType;
+import com.padr.buynow.domain.core.product.entity.ProductType;
 
 import lombok.Builder;
 import lombok.Data;

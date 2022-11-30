@@ -19,13 +19,13 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.padr.buynow.domain.address.entity.Address;
-import com.padr.buynow.domain.address.service.AddressService;
-import com.padr.buynow.domain.user.entity.User;
-import com.padr.buynow.domain.user.exception.UserAlreadyExistWithEmailException;
-import com.padr.buynow.domain.user.exception.UserAlreadyExistWithIdentityNumberException;
-import com.padr.buynow.domain.user.exception.UserNotFoundException;
-import com.padr.buynow.domain.user.service.UserService;
+import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.domain.core.address.service.AddressService;
+import com.padr.buynow.domain.core.user.entity.User;
+import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithEmailException;
+import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithIdentityNumberException;
+import com.padr.buynow.domain.core.user.exception.UserNotFoundException;
+import com.padr.buynow.domain.core.user.service.UserService;
 import com.padr.buynow.outbound.persistence.user.port.UserPersistencePort;
 
 @RunWith(MockitoJUnitRunner.class)

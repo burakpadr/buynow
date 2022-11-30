@@ -2,7 +2,7 @@ package com.padr.buynow.outbound.persistence.product.port;
 
 import java.util.Optional;
 
-import com.padr.buynow.domain.product.entity.Product;
+import com.padr.buynow.domain.core.product.entity.Product;
 
 public interface ProductPersistencePort {
     

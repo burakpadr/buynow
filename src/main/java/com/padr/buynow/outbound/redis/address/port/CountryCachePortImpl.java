@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.address.entity.Country;
+import com.padr.buynow.domain.core.address.entity.Country;
 import com.padr.buynow.outbound.redis.address.repository.CountryCacheRepository;
 
 import lombok.RequiredArgsConstructor;

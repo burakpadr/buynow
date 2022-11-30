@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.padr.buynow.domain.frontend.entity.InputFieldType;
+import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
 import com.padr.buynow.outbound.persistence.frontend.repository.InputFieldTypeRepository;
 
 import lombok.RequiredArgsConstructor;

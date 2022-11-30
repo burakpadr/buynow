@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.padr.buynow.domain.frontend.entity.InputFieldType;
-import com.padr.buynow.domain.frontend.service.InputFieldTypeService;
-import com.padr.buynow.domain.product.entity.ProductTypeAttribute;
-import com.padr.buynow.domain.product.port.ProductTypeAttributeServicePort;
+import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
+import com.padr.buynow.domain.core.frontend.service.InputFieldTypeService;
+import com.padr.buynow.domain.core.product.entity.ProductTypeAttribute;
+import com.padr.buynow.domain.core.product.port.ProductTypeAttributeServicePort;
 import com.padr.buynow.inbound.product.model.request.ProductTypeAttributeRequest;
 import com.padr.buynow.inbound.product.model.response.ProductTypeAttributeResponse;
 

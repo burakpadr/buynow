@@ -2,7 +2,7 @@ package com.padr.buynow.outbound.persistence.address.port;
 
 import java.util.Optional;
 
-import com.padr.buynow.domain.address.entity.Address;
+import com.padr.buynow.domain.core.address.entity.Address;
 
 public interface AddressPersistencePort {
     

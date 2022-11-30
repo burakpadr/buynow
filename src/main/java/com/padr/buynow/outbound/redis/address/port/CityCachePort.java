@@ -2,7 +2,7 @@ package com.padr.buynow.outbound.redis.address.port;
 
 import java.util.List;
 
-import com.padr.buynow.domain.address.entity.City;
+import com.padr.buynow.domain.core.address.entity.City;
 
 public interface CityCachePort {
 

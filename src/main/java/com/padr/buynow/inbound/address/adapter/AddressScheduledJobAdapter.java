@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.padr.buynow.domain.address.port.AddressScheduledJobServicePort;
+import com.padr.buynow.domain.core.address.port.AddressScheduledJobServicePort;
 
 import lombok.RequiredArgsConstructor;
 

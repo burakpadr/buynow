@@ -20,9 +20,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.padr.buynow.domain.product.entity.ProductTypeAttributeValue;
-import com.padr.buynow.domain.product.exception.ProductTypeAttributeValueNotFoundException;
-import com.padr.buynow.domain.product.service.ProductTypeAttributeValueService;
+import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeValue;
+import com.padr.buynow.domain.core.product.exception.ProductTypeAttributeValueNotFoundException;
+import com.padr.buynow.domain.core.product.service.ProductTypeAttributeValueService;
 import com.padr.buynow.outbound.persistence.product.port.ProductTypeAttributeValuePersistencePort;
 
 @RunWith(MockitoJUnitRunner.class)

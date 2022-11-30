@@ -3,7 +3,7 @@ package com.padr.buynow.outbound.redis.address.port;
 import java.util.List;
 import java.util.Optional;
 
-import com.padr.buynow.domain.address.entity.Country;
+import com.padr.buynow.domain.core.address.entity.Country;
 
 public interface CountryCachePort {
 

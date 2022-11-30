@@ -1,6 +1,6 @@
 package com.padr.buynow.inbound.frontend.model.response;
 
-import com.padr.buynow.domain.frontend.entity.InputFieldType;
+import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
 
 import lombok.Builder;
 import lombok.Data;

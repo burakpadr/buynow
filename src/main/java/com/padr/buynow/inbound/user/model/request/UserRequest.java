@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.padr.buynow.domain.user.entity.User;
+import com.padr.buynow.domain.core.user.entity.User;
 import com.padr.buynow.inbound.address.model.request.AddressRequest;
 
 import lombok.AllArgsConstructor;
