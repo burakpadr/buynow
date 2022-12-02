@@ -40,6 +40,7 @@ public class AuctionNoticeService {
             auctionNotice.setBasePrice(updateAuctionNotice.getBasePrice());
             auctionNotice.setAuctionTimeMinutes(updateAuctionNotice.getAuctionTimeMinutes());
             auctionNotice.setMinimumBidAccrual(updateAuctionNotice.getMinimumBidAccrual());
+            auctionNotice.setIsPublished(updateAuctionNotice.getIsPublished());
 
             return auctionNoticePersistencePort.save(auctionNotice);
         } else
@@ -98,6 +99,23 @@ public class AuctionNoticeService {
             } else
                 throw new StepShouldBeWaitingForPaymentException();
         } else
+            throw new NoticeIsLiveException();
+    }
+
+    public void cancelTheAuction(Long id, String cancellationReason) {
+        AuctionNotice auctionNotice = findById(id);
+
+        if (!auctionNotice.getIsPublished()) {
+            if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_PAYMENT)) {
+                auctionNotice.setStep(AuctionNoticeStep.CANCELLED);
+                auctionNotice.setCancellationReason(cancellationReason);
+
+                auctionNoticePersistencePort.save(auctionNotice);
+            }
+            else
+                throw new StepShouldBeWaitingForPaymentException();
+        }
+        else
             throw new NoticeIsLiveException();
     }
 }

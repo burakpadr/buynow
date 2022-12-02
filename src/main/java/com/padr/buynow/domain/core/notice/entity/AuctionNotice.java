@@ -10,7 +10,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -62,6 +61,6 @@ public class AuctionNotice {
     @Column
     private Boolean isActive;
 
-    @OneToOne
-    private AuctionNoticeCancellation auctionNoticeCancellation;
+    @Column
+    private String cancellationReason;
 }
