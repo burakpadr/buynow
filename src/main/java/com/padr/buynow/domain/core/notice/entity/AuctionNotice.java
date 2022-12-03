@@ -2,14 +2,17 @@ package com.padr.buynow.domain.core.notice.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -63,4 +66,7 @@ public class AuctionNotice {
 
     @Column
     private String cancellationReason;
+
+    @OneToMany(mappedBy = "auctionNotice", fetch = FetchType.LAZY)
+    private List<Bid> bids;
 }

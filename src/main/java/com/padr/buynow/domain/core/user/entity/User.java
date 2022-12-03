@@ -1,17 +1,21 @@
 package com.padr.buynow.domain.core.user.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.domain.core.notice.entity.Bid;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -54,4 +58,7 @@ public class User {
 
     @OneToOne
     private Address address;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Bid> bids;
 }
