@@ -9,7 +9,7 @@ import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.core.notice.exception.AuctionNoticeNotFoundException;
 import com.padr.buynow.domain.core.notice.exception.NoticeIsLiveException;
 import com.padr.buynow.domain.core.notice.exception.NoticeIsNotLiveException;
-import com.padr.buynow.domain.core.notice.exception.StepShouldBeInAuctionException;
+import com.padr.buynow.domain.core.notice.exception.StepShouldBeInNoticeException;
 import com.padr.buynow.domain.core.notice.exception.StepShouldBeInCargoException;
 import com.padr.buynow.domain.core.notice.exception.StepShouldBePreparingCargoException;
 import com.padr.buynow.domain.core.notice.exception.StepShouldBeWaitingForBidException;
@@ -85,7 +85,7 @@ public class AuctionNoticeService {
 
                 auctionNoticePersistencePort.save(auctionNotice);
             } else
-                throw new StepShouldBeInAuctionException();
+                throw new StepShouldBeInNoticeException();
         } else
             throw new NoticeIsNotLiveException();
     }
@@ -104,7 +104,7 @@ public class AuctionNoticeService {
             throw new NoticeIsLiveException();
     }
 
-    public void shipIt(Long id) {
+    public void shipTheProduct(Long id) {
         AuctionNotice auctionNotice = findById(id);
 
         if (!auctionNotice.getIsPublished()) {
