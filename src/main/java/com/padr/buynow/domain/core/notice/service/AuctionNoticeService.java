@@ -7,13 +7,8 @@ import org.springframework.stereotype.Service;
 import com.padr.buynow.domain.core.notice.constant.AuctionNoticeStep;
 import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.core.notice.exception.AuctionNoticeNotFoundException;
-import com.padr.buynow.domain.core.notice.exception.NoticeIsLiveException;
-import com.padr.buynow.domain.core.notice.exception.NoticeIsNotLiveException;
 import com.padr.buynow.domain.core.notice.exception.StepShouldBeInNoticeException;
-import com.padr.buynow.domain.core.notice.exception.StepShouldBeInCargoException;
-import com.padr.buynow.domain.core.notice.exception.StepShouldBePreparingCargoException;
 import com.padr.buynow.domain.core.notice.exception.StepShouldBeWaitingForBidException;
-import com.padr.buynow.domain.core.notice.exception.StepShouldBeWaitingForPaymentException;
 import com.padr.buynow.outbound.persistence.notice.port.AuctionNoticePersistencePort;
 
 import lombok.RequiredArgsConstructor;
@@ -59,91 +54,27 @@ public class AuctionNoticeService {
 
     public void startTheAuction(Long id) {
         AuctionNotice auctionNotice = findById(id);
+        if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_BID)) {
+            auctionNotice.setStartedAt(LocalDateTime.now());
+            auctionNotice.setExpiredAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
+            auctionNotice
+                    .setOriginalExpireAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
+            auctionNotice.setStep(AuctionNoticeStep.IN_AUCTION);
 
-        if (auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_BID)) {
-                auctionNotice.setStartedAt(LocalDateTime.now());
-                auctionNotice.setExpiredAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
-                auctionNotice
-                        .setOriginalExpireAt(LocalDateTime.now().plusMinutes(auctionNotice.getAuctionTimeMinutes()));
-                auctionNotice.setStep(AuctionNoticeStep.IN_AUCTION);
-
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBeWaitingForBidException();
+            auctionNoticePersistencePort.save(auctionNotice);
         } else
-            throw new NoticeIsNotLiveException();
+            throw new StepShouldBeWaitingForBidException();
     }
 
     public void finishTheAuction(Long id) {
         AuctionNotice auctionNotice = findById(id);
 
-        if (auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.IN_AUCTION)) {
-                auctionNotice.setIsPublished(false);
-                auctionNotice.setStep(AuctionNoticeStep.WAITING_FOR_PAYMENT);
+        if (auctionNotice.getStep().equals(AuctionNoticeStep.IN_AUCTION)) {
+            auctionNotice.setIsPublished(false);
+            auctionNotice.setStep(AuctionNoticeStep.FINISHED);
 
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBeInNoticeException();
+            auctionNoticePersistencePort.save(auctionNotice);
         } else
-            throw new NoticeIsNotLiveException();
-    }
-
-    public void prepareTheCargo(Long id) {
-        AuctionNotice auctionNotice = findById(id);
-
-        if (!auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_PAYMENT)) {
-                auctionNotice.setStep(AuctionNoticeStep.PREPARING_CARGO);
-
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBeWaitingForPaymentException();
-        } else
-            throw new NoticeIsLiveException();
-    }
-
-    public void shipTheProduct(Long id) {
-        AuctionNotice auctionNotice = findById(id);
-
-        if (!auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.PREPARING_CARGO)) {
-                auctionNotice.setStep(AuctionNoticeStep.IN_CARGO);
-
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBePreparingCargoException();
-        } else
-            throw new NoticeIsLiveException();
-    }
-
-    public void completeTheAuction(Long id) {
-        AuctionNotice auctionNotice = findById(id);
-
-        if (!auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.IN_CARGO)) {
-                auctionNotice.setStep(AuctionNoticeStep.SOLD);
-
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBeInCargoException();
-        } else
-            throw new NoticeIsLiveException();
-    }
-
-    public void cancelTheAuction(Long id, String cancellationReason) {
-        AuctionNotice auctionNotice = findById(id);
-
-        if (!auctionNotice.getIsPublished()) {
-            if (auctionNotice.getStep().equals(AuctionNoticeStep.WAITING_FOR_PAYMENT)) {
-                auctionNotice.setStep(AuctionNoticeStep.CANCELLED);
-                auctionNotice.setCancellationReason(cancellationReason);
-
-                auctionNoticePersistencePort.save(auctionNotice);
-            } else
-                throw new StepShouldBeWaitingForPaymentException();
-        } else
-            throw new NoticeIsLiveException();
+            throw new StepShouldBeInNoticeException();
     }
 }
