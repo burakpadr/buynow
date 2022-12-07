@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.padr.buynow.domain.core.notice.constant.TraditionalNoticeStep;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,9 +30,6 @@ public class TraditionalNotice {
 
     @Column
     private BigDecimal price;
-
-    @Column
-    private TraditionalNoticeStep step;
 
     @Column
     private Boolean isPublished;
