@@ -27,7 +27,7 @@ public class TraditionalNoticeService {
     public TraditionalNotice update(Long id, TraditionalNotice updateTraditionalNotice) {
         TraditionalNotice traditionalNotice = findById(id);
 
-        traditionalNotice.setPrice(updateTraditionalNotice.getPrice());
+        traditionalNotice.setBasePrice(updateTraditionalNotice.getBasePrice());
         traditionalNotice.setIsPublished(updateTraditionalNotice.getIsPublished());
 
         return traditionalNoticePersistencePort.save(traditionalNotice);
