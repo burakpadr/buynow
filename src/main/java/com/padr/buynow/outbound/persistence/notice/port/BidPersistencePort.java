@@ -1,12 +1,8 @@
 package com.padr.buynow.outbound.persistence.notice.port;
 
-import java.util.Optional;
-
 import com.padr.buynow.domain.core.notice.entity.Bid;
+import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
 
-public interface BidPersistencePort {
-    
-    Optional<Bid> findById(Long id);
+public interface BidPersistencePort extends BaseCacheAndPersistencePort<Bid> {
 
-    Bid save(Bid bid);
 }

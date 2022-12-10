@@ -1,12 +1,8 @@
 package com.padr.buynow.outbound.persistence.notice.port;
 
-import java.util.Optional;
-
 import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
+import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
 
-public interface TraditionalNoticePersistencePort {
-    
-    Optional<TraditionalNotice> findById(Long id);
+public interface TraditionalNoticePersistencePort extends BaseCacheAndPersistencePort<TraditionalNotice> {
 
-    TraditionalNotice save(TraditionalNotice traditionalNotice);
 }

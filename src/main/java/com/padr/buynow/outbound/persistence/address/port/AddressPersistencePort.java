@@ -1,12 +1,7 @@
 package com.padr.buynow.outbound.persistence.address.port;
 
-import java.util.Optional;
-
 import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
 
-public interface AddressPersistencePort {
-    
-    Optional<Address> findById(Long id);
-
-    Address save(Address address);
+public interface AddressPersistencePort extends BaseCacheAndPersistencePort<Address> {
 }

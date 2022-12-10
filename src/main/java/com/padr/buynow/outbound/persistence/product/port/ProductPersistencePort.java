@@ -1,12 +1,8 @@
 package com.padr.buynow.outbound.persistence.product.port;
 
-import java.util.Optional;
-
 import com.padr.buynow.domain.core.product.entity.Product;
+import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
 
-public interface ProductPersistencePort {
+public interface ProductPersistencePort extends BaseCacheAndPersistencePort<Product> {
     
-    Optional<Product> findById(Long id);
-
-    Product save(Product product);
 }
