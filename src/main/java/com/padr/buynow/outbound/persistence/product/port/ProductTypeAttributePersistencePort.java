@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import com.padr.buynow.domain.core.product.entity.ProductTypeAttribute;
-import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
+import com.padr.buynow.outbound.persistence.common.BasePersistencePort;
 
-public interface ProductTypeAttributePersistencePort extends BaseCacheAndPersistencePort<ProductTypeAttribute> {
+public interface ProductTypeAttributePersistencePort extends BasePersistencePort<ProductTypeAttribute> {
 
     public Optional<ProductTypeAttribute> findByName(String name);
 

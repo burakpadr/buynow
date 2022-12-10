@@ -1,8 +1,8 @@
 package com.padr.buynow.outbound.persistence.notice.port;
 
 import com.padr.buynow.domain.core.notice.entity.Discount;
-import com.padr.buynow.outbound.common.BaseCacheAndPersistencePort;
+import com.padr.buynow.outbound.persistence.common.BasePersistencePort;
 
-public interface DiscountPersistencePort extends BaseCacheAndPersistencePort<Discount> {
+public interface DiscountPersistencePort extends BasePersistencePort<Discount> {
 
 }
