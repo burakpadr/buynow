@@ -21,7 +21,7 @@ security:
 integration:
   country-state-city:
       apiAuthenticationAlias: X-CSCAPI-KEY
-      apiAuthenticationValue: WWtZQ2hGem1Da0VxVUhFMmttcElVOWRreUV1SkF2eFhTbzh1Nks3TQ==
+      apiAuthenticationValue: xxx
 
 hashids:
   salt: salt
