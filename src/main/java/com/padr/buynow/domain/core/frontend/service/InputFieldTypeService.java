@@ -16,6 +16,10 @@ public class InputFieldTypeService {
     private final InputFieldTypePersistencePort inputFieldTypePersistencePort;
 
     public InputFieldType create(InputFieldType inputFieldType) {
+        inputFieldTypePersistencePort.findByName(inputFieldType.getName()).ifPresent(ift -> {
+            throw new InputFieldTypeAlreadyExistWithNameException();
+        });
+
         inputFieldType.setIsActive(true);
 
         return inputFieldTypePersistencePort.save(inputFieldType);
