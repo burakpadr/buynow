@@ -12,5 +12,7 @@ public interface CartItemCacheRepository extends CrudRepository<CartItem, String
     
     List<CartItem> findByCartId(String cartId);
 
+    List<CartItem> findByProductId(Long productId);
+
     void deleteByCartId(String cartId);
 }

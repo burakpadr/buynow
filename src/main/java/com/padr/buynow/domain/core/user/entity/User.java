@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import com.padr.buynow.domain.core.address.entity.Address;
 import com.padr.buynow.domain.core.notice.entity.Bid;
+import com.padr.buynow.domain.core.order.entity.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -61,4 +62,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Bid> bids;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders;
 }

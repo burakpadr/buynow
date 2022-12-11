@@ -1,7 +1,11 @@
 package com.padr.buynow.domain.core.product.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.padr.buynow.domain.core.cart.entity.CartItem;
+import com.padr.buynow.domain.core.cart.service.CartItemService;
 import com.padr.buynow.domain.core.product.entity.Product;
 import com.padr.buynow.domain.core.product.exception.ProductNotFoundException;
 import com.padr.buynow.outbound.persistence.product.port.ProductPersistencePort;
@@ -13,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 public class ProductService {
     
     private final ProductPersistencePort productPersistencePort;
+
+    private final CartItemService cartItemService;
 
     public Product create(Product product) {
         product.setIsActive(true);
@@ -31,6 +37,8 @@ public class ProductService {
         product.setDescription(updateProduct.getDescription());
         product.setAddress(updateProduct.getAddress());
 
+        notifyTheObservers(product);
+
         return productPersistencePort.save(product);
     }
 
@@ -40,5 +48,13 @@ public class ProductService {
         product.setIsActive(false);
 
         productPersistencePort.save(product);
+    }
+
+    private void notifyTheObservers(Product product) {
+        List<CartItem> cartItems = cartItemService.findByProductId(product.getId());
+
+        cartItems.parallelStream().forEach(cartItem -> {
+            cartItemService.update(cartItem.getCartId(), product);
+        });
     }
 }

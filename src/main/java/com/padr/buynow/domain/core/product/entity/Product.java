@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import com.padr.buynow.domain.core.address.entity.Address;
 import com.padr.buynow.domain.core.notice.constant.NoticeType;
 import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
+import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
 import com.padr.buynow.domain.core.user.entity.User;
 
 import lombok.AllArgsConstructor;
@@ -65,4 +66,7 @@ public class Product {
 
     @OneToOne
     private AuctionNotice auctionNotice;
+
+    @OneToOne
+    private TraditionalNotice traditionalNotice;
 }

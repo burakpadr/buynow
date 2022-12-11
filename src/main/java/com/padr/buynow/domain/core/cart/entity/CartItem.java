@@ -26,7 +26,9 @@ public class CartItem {
     @Indexed
     private String cartId;
 
+    @Indexed
     private Long productId;
+
     private String sellerTitle;
     private String productHeader;
     private BigDecimal basePrice;

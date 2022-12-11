@@ -11,6 +11,8 @@ public interface CartItemCachePort {
 
     List<CartItem> findByCartId(String cartId);
 
+    List<CartItem> findByProductId(Long productId);
+
     CartItem save(CartItem cartItem);
 
     void deleteById(String id);

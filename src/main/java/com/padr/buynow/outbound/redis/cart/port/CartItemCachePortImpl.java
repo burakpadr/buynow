@@ -40,4 +40,9 @@ public class CartItemCachePortImpl implements CartItemCachePort {
     public void deleteByCartId(String cartId) {
         cartItemCacheRepository.deleteByCartId(null);
     }
+
+    @Override
+    public List<CartItem> findByProductId(Long productId) {
+        return cartItemCacheRepository.findByProductId(productId);
+    }
 }

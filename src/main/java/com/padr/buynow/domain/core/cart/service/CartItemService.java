@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.padr.buynow.domain.core.cart.constant.CartConstant;
 import com.padr.buynow.domain.core.cart.entity.CartItem;
 import com.padr.buynow.domain.core.cart.exception.CartItemNotFoundException;
+import com.padr.buynow.domain.core.product.entity.Product;
 import com.padr.buynow.outbound.redis.cart.port.CartItemCachePort;
 
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CartItemService {
-    
+
     private final CartItemCachePort cartItemCachePort;
 
     public CartItem create(CartItem cartItem) {
@@ -31,13 +32,18 @@ public class CartItemService {
         return cartItemCachePort.findByCartId(cartId);
     }
 
-    public CartItem update(String id, CartItem updateCartItem) {
-        CartItem cartItem = findById(id);
+    public List<CartItem> findByProductId(Long productId) {
+        return cartItemCachePort.findByProductId(productId);
+    }
 
-        cartItem.setSellerTitle(updateCartItem.getSellerTitle());
-        cartItem.setProductHeader(updateCartItem.getProductHeader());
-        cartItem.setBasePrice(updateCartItem.getBasePrice());
-        cartItem.setDiscount(updateCartItem.getDiscount());
+    public CartItem update(String cartItemId, Product product) {
+        CartItem cartItem = findById(cartItemId);
+
+        cartItem.setSellerTitle(
+                String.format("%s %s", product.getOwnerUser().getName(), product.getOwnerUser().getSurname()));
+        cartItem.setProductHeader(product.getHeader());
+        cartItem.setBasePrice(product.getTraditionalNotice().getBasePrice());
+        cartItem.setDiscount(product.getTraditionalNotice().getDiscount().getPercent());
 
         return cartItemCachePort.save(cartItem);
     }
