@@ -5,20 +5,20 @@ import org.springframework.stereotype.Component;
 import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
 import com.padr.buynow.domain.core.frontend.service.InputFieldTypeService;
 import com.padr.buynow.domain.usecase.common.BaseUseCase;
-import com.padr.buynow.domain.usecase.frontend.inputfieldtype.model.UpdateInputFieldTypeUseCaseModel;
+import com.padr.buynow.domain.usecase.frontend.inputfieldtype.model.request.UpdateInputFieldTypeUseCaseRequest;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class UpdateInputFieldTypeUseCase implements BaseUseCase<InputFieldType, UpdateInputFieldTypeUseCaseModel> {
+public class UpdateInputFieldTypeUseCase implements BaseUseCase<InputFieldType, UpdateInputFieldTypeUseCaseRequest> {
 
     private final InputFieldTypeService inputFieldTypeService;
 
     @Override
-    public InputFieldType perform(UpdateInputFieldTypeUseCaseModel updateInputFieldTypeUseCaseModel) {
+    public InputFieldType perform(UpdateInputFieldTypeUseCaseRequest updateInputFieldTypeUseCaseModel) {
         return inputFieldTypeService.update(updateInputFieldTypeUseCaseModel.getId(),
-                updateInputFieldTypeUseCaseModel.getInputFieldType());
+                updateInputFieldTypeUseCaseModel.getUpdateInputFieldType().to());
     }
 
 }

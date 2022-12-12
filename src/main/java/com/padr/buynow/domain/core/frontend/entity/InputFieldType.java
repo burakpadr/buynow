@@ -30,5 +30,8 @@ public class InputFieldType {
     private String name;
 
     @Column
+    private Boolean hasMultipleValue;
+
+    @Column
     private Boolean isActive;
 }
