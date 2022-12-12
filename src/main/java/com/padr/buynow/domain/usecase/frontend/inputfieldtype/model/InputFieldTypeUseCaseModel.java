@@ -1,4 +1,4 @@
-package com.padr.buynow.domain.usecase.frontend.inputfieldtype.model.request;
+package com.padr.buynow.domain.usecase.frontend.inputfieldtype.model;
 
 import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
 
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InputFieldTypeUseCaseRequest {
+public class InputFieldTypeUseCaseModel {
     
     private String name;
     private Boolean hasMultipleValue;
