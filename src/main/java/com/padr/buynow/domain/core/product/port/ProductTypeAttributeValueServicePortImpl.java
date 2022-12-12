@@ -26,11 +26,6 @@ public class ProductTypeAttributeValueServicePortImpl implements ProductTypeAttr
     }
 
     @Override
-    public List<ProductTypeAttributeValue> findByAttributeId(Long attributeId) {
-        return attributeValueService.findByAttributeId(attributeId);
-    }
-
-    @Override
     public ProductTypeAttributeValue update(Long id, ProductTypeAttributeValue updateAttributeValue) {
         return attributeValueService.update(id, updateAttributeValue);
     }

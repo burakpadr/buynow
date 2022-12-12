@@ -29,10 +29,6 @@ public class ProductTypeAttributeValueService {
                 .orElseThrow(ProductTypeAttributeValueNotFoundException::new);
     }
 
-    public List<ProductTypeAttributeValue> findByAttributeId(Long attributeId) {
-        return productTypeAttributeValuePersistencePort.findByProductTypeAttributeIdAndIsActive(attributeId, true);
-    }
-
     public ProductTypeAttributeValue update(Long id, ProductTypeAttributeValue updateAttributeValue) {
         ProductTypeAttributeValue attributeValue = findById(id);
 

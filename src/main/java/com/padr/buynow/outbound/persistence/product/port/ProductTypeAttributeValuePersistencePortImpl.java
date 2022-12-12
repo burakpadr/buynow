@@ -22,11 +22,6 @@ public class ProductTypeAttributeValuePersistencePortImpl implements ProductType
     }
 
     @Override
-    public List<ProductTypeAttributeValue> findByProductTypeAttributeIdAndIsActive(Long attributeId, Boolean isActive) {
-        return attributeValueRepository.findByProductTypeAttributeIdAndIsActive(attributeId, isActive);
-    }
-
-    @Override
     public ProductTypeAttributeValue save(ProductTypeAttributeValue attributeValue) {
         return attributeValueRepository.save(attributeValue);
     }

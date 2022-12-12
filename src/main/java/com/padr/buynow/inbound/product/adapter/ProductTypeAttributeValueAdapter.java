@@ -58,13 +58,6 @@ public class ProductTypeAttributeValueAdapter {
         return ProductTypeAttributeValueResponse.of(productTypeAttributeValueServicePort.findById(id));
     }
 
-    @GetMapping("/by/attribute/{id}")
-    public List<ProductTypeAttributeValueResponse> findByAttributeId(@PathVariable Long id) {
-        return productTypeAttributeValueServicePort.findByAttributeId(id).stream()
-                .map(ProductTypeAttributeValueResponse::of)
-                .collect(Collectors.toList());
-    }
-
     @PutMapping("/by/id/{id}")
     public ProductTypeAttributeValueResponse update(@PathVariable Long id,
             @Valid @RequestBody ProductTypeAttributeValueRequest updateAttributeValueRequest) {

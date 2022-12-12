@@ -8,7 +8,5 @@ import com.padr.buynow.outbound.persistence.common.BasePersistencePort;
 public interface ProductTypeAttributeValuePersistencePort
         extends BasePersistencePort<ProductTypeAttributeValue> {
 
-    List<ProductTypeAttributeValue> findByProductTypeAttributeIdAndIsActive(Long attributeId, Boolean isActive);
-
     List<ProductTypeAttributeValue> saveAll(List<ProductTypeAttributeValue> attributeValues);
 }

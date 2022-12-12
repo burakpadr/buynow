@@ -10,8 +10,6 @@ public interface ProductTypeAttributeValueServicePort {
 
     ProductTypeAttributeValue findById(Long id);
 
-    List<ProductTypeAttributeValue> findByAttributeId(Long attributeId);
-
     ProductTypeAttributeValue update(Long id, ProductTypeAttributeValue updateAttributeValue);
 
     void deleteById(Long id);

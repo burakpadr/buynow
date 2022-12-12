@@ -76,22 +76,6 @@ public class ProductTypeAttributeValueServiceTest {
     }
 
     @Test
-    public void findByAttributeId_successfully() {
-        List<ProductTypeAttributeValue> expected = List
-                .of(ProductTypeAttributeValue.builder().id(1L).value("value").build(),
-                        ProductTypeAttributeValue.builder().id(2L).value("value2").build());
-        
-        when(mockProductTypeAttributeValuePersistencePort.findByProductTypeAttributeIdAndIsActive(1L, true)).thenReturn(expected);
-
-        List<ProductTypeAttributeValue> actual = classUnderTest.findByAttributeId(1L);
-
-        assertAll(
-            () -> assertNotNull(actual),
-            () -> assertArrayEquals(expected.toArray(), actual.toArray())
-        );
-    }
-
-    @Test
     public void update_successfully() {
         ProductTypeAttributeValue given = ProductTypeAttributeValue.builder()
                 .value("updated-value")
