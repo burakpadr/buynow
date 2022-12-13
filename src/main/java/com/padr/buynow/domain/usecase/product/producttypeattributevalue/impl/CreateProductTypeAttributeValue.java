@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class CreateProductTypeAttributeValueUseCase
+public class CreateProductTypeAttributeValue
         implements BaseUseCase<List<ProductTypeAttributeValue>, List<ProductTypeAttributeValueUseCaseModel>> {
 
     private final ProductTypeAttributeValueService productTypeAttributeValueService;

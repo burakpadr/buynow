@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class DeleteProductTypeAttributeValueUseCase implements BaseUseCase<Void, Long> {
+public class DeleteProductTypeAttributeValue implements BaseUseCase<Void, Long> {
     
     private final ProductTypeAttributeValueService productTypeAttributeValueService;
 

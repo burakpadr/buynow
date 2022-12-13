@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class UpdateInputFieldTypeUseCase implements BaseUseCase<InputFieldType, UpdateInputFieldTypeUseCaseModel> {
+public class UpdateInputFieldType implements BaseUseCase<InputFieldType, UpdateInputFieldTypeUseCaseModel> {
 
     private final InputFieldTypeService inputFieldTypeService;
 
