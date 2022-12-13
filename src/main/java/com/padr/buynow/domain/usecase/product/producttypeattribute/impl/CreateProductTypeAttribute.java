@@ -16,7 +16,8 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class CreateProductTypeAttribute implements BaseUseCase<ProductTypeAttribute, CreateProductTypeAttributeUseCaseModel> {
+public class CreateProductTypeAttribute
+        implements BaseUseCase<ProductTypeAttribute, CreateProductTypeAttributeUseCaseModel> {
 
     private final ProductTypeAttributeService productTypeAttributeService;
     private final InputFieldTypeService inputFieldTypeService;
@@ -35,8 +36,14 @@ public class CreateProductTypeAttribute implements BaseUseCase<ProductTypeAttrib
         productTypeAttribute.setInputFieldType(inputFieldType);
         productTypeAttribute.setProductTypeAttributeGroup(productTypeAttributeGroup);
 
-        productTypeAttribute = productTypeAttributeService.create(productTypeAttribute);
-        productTypeAttribute.setProductTypeAttributeValues(createProductTypeAttributeValue.perform(model.getValues()));
+        ProductTypeAttribute savedProductTypeAttribute = productTypeAttributeService.create(productTypeAttribute);
+
+        model.getValues().parallelStream().forEach(value -> {
+            value.setProductTypeAttributeId(savedProductTypeAttribute.getId());
+        });
+
+        savedProductTypeAttribute
+                .setProductTypeAttributeValues(createProductTypeAttributeValue.perform(model.getValues()));
 
         return productTypeAttribute;
     }
