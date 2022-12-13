@@ -10,20 +10,20 @@ import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeValue;
 import com.padr.buynow.domain.core.product.service.ProductTypeAttributeService;
 import com.padr.buynow.domain.core.product.service.ProductTypeAttributeValueService;
 import com.padr.buynow.domain.usecase.common.BaseUseCase;
-import com.padr.buynow.domain.usecase.product.producttypeattributevalue.model.ProductTypeAttributeValueUseCaseModel;
+import com.padr.buynow.domain.usecase.product.producttypeattributevalue.model.CreateProductTypeAttributeValueUseCaseModel;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
 public class CreateProductTypeAttributeValue
-        implements BaseUseCase<List<ProductTypeAttributeValue>, List<ProductTypeAttributeValueUseCaseModel>> {
+        implements BaseUseCase<List<ProductTypeAttributeValue>, List<CreateProductTypeAttributeValueUseCaseModel>> {
 
     private final ProductTypeAttributeValueService productTypeAttributeValueService;
     private final ProductTypeAttributeService productTypeAttributeService;
 
     @Override
-    public List<ProductTypeAttributeValue> perform(List<ProductTypeAttributeValueUseCaseModel> requests) {
+    public List<ProductTypeAttributeValue> perform(List<CreateProductTypeAttributeValueUseCaseModel> requests) {
         List<ProductTypeAttributeValue> values = new ArrayList<>();
 
         requests.parallelStream().forEach(request -> {

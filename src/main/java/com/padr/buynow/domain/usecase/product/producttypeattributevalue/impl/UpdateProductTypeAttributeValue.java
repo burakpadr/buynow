@@ -1,5 +1,8 @@
 package com.padr.buynow.domain.usecase.product.producttypeattributevalue.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeValue;
@@ -12,14 +15,15 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class UpdateProductTypeAttributeValue
-        implements BaseUseCase<ProductTypeAttributeValue, UpdateProductTypeAttributeValueUseCaseModel> {
+        implements BaseUseCase<List<ProductTypeAttributeValue>, List<UpdateProductTypeAttributeValueUseCaseModel>> {
 
     private final ProductTypeAttributeValueService productTypeAttributeValueService;
 
     @Override
-    public ProductTypeAttributeValue perform(
-            UpdateProductTypeAttributeValueUseCaseModel updateProductTypeAttributeValueUseCaseModel) {
-        return productTypeAttributeValueService.update(updateProductTypeAttributeValueUseCaseModel.getId(),
-                updateProductTypeAttributeValueUseCaseModel.getUpdateProductTypeAttributeValueModel().to());
+    public List<ProductTypeAttributeValue> perform(
+            List<UpdateProductTypeAttributeValueUseCaseModel> models) {
+        return models.parallelStream().map(model -> {
+            return productTypeAttributeValueService.update(model.getId(), model.to());
+        }).collect(Collectors.toList());
     }
 }

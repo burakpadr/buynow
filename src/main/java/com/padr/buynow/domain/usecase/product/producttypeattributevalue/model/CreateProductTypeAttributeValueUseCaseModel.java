@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ProductTypeAttributeValueUseCaseModel {
+public class CreateProductTypeAttributeValueUseCaseModel {
     
     private String value;
     private Long productTypeAttributeId;
