@@ -35,9 +35,6 @@ public class ProductTypeAttribute {
     private Long id;
 
     @Column
-    private String name;
-
-    @Column
     private String label;
 
     @Column Boolean isActive;

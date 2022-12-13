@@ -11,14 +11,12 @@ import lombok.Data;
 public class ProductTypeAttributeResponse {
     
     private Long id;
-    private String name;
     private String label;
     private InputFieldTypeResponse inputFieldType;
 
     public static ProductTypeAttributeResponse of(ProductTypeAttribute attribute) {
         return ProductTypeAttributeResponse.builder() 
                 .id(attribute.getId())
-                .name(attribute.getName())
                 .label(attribute.getLabel())
                 .inputFieldType(InputFieldTypeResponse.of(attribute.getInputFieldType()))
                 .build();

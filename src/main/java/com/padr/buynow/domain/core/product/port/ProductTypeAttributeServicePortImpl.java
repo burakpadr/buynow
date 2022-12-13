@@ -1,7 +1,5 @@
 package com.padr.buynow.domain.core.product.port;
 
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import com.padr.buynow.domain.core.product.entity.ProductTypeAttribute;
@@ -23,16 +21,6 @@ public class ProductTypeAttributeServicePortImpl implements ProductTypeAttribute
     @Override
     public ProductTypeAttribute findById(Long id) {
         return attributeService.findById(id);
-    }
-
-    @Override
-    public ProductTypeAttribute findByName(String name) {
-        return attributeService.findByName(name);
-    }
-
-    @Override
-    public List<ProductTypeAttribute> findByProductTypeAttributeGroupId(Long productTypeAttributeGroupId) {
-        return attributeService.findByProductTypeAttributeGroupId(productTypeAttributeGroupId);
     }
 
     @Override
