@@ -10,7 +10,6 @@ import com.padr.buynow.domain.core.product.service.ProductTypeAttributeGroupServ
 import com.padr.buynow.domain.core.product.service.ProductTypeAttributeService;
 import com.padr.buynow.domain.usecase.common.BaseUseCase;
 import com.padr.buynow.domain.usecase.product.producttypeattribute.model.CreateProductTypeAttributeUseCaseModel;
-import com.padr.buynow.domain.usecase.product.producttypeattributevalue.impl.CreateProductTypeAttributeValue;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,8 +22,6 @@ public class CreateProductTypeAttribute
     private final InputFieldTypeService inputFieldTypeService;
     private final ProductTypeAttributeGroupService productTypeAttributeGroupService;
 
-    private final CreateProductTypeAttributeValue createProductTypeAttributeValue;
-
     @Override
     public ProductTypeAttribute perform(CreateProductTypeAttributeUseCaseModel model) {
         InputFieldType inputFieldType = inputFieldTypeService.findById(model.getInputFieldTypeId());
@@ -36,16 +33,7 @@ public class CreateProductTypeAttribute
         productTypeAttribute.setInputFieldType(inputFieldType);
         productTypeAttribute.setProductTypeAttributeGroup(productTypeAttributeGroup);
 
-        ProductTypeAttribute savedProductTypeAttribute = productTypeAttributeService.create(productTypeAttribute);
-
-        model.getValues().parallelStream().forEach(value -> {
-            value.setProductTypeAttributeId(savedProductTypeAttribute.getId());
-        });
-
-        savedProductTypeAttribute
-                .setProductTypeAttributeValues(createProductTypeAttributeValue.perform(model.getValues()));
-
-        return productTypeAttribute;
+        return productTypeAttributeService.create(productTypeAttribute);
     }
 
 }
