@@ -17,10 +17,6 @@ public class ProductTypeAttributeGroupRequest {
     
     @NotNull
     @NotEmpty
-    private String name;
-
-    @NotNull
-    @NotEmpty
     private String label;
 
     @NotNull
@@ -29,7 +25,6 @@ public class ProductTypeAttributeGroupRequest {
 
     public ProductTypeAttributeGroup to() {
         return ProductTypeAttributeGroup.builder()
-                .name(name)
                 .label(label)
                 .build();
     }

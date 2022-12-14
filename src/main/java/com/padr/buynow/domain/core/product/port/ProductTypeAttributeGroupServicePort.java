@@ -1,7 +1,5 @@
 package com.padr.buynow.domain.core.product.port;
 
-import java.util.List;
-
 import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeGroup;
 
 public interface ProductTypeAttributeGroupServicePort {
@@ -9,10 +7,6 @@ public interface ProductTypeAttributeGroupServicePort {
     ProductTypeAttributeGroup create(ProductTypeAttributeGroup productTypeAttributeGroup);
 
     public ProductTypeAttributeGroup findById(Long id);
-
-    public ProductTypeAttributeGroup findByName(String name);
-
-    List<ProductTypeAttributeGroup> findByProductTypeId(Long productTypeId);
 
     ProductTypeAttributeGroup update(Long id, ProductTypeAttributeGroup updateProductTypeAttributeGroup);
 

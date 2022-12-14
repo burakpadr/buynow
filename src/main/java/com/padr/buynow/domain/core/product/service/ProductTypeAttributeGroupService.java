@@ -1,11 +1,8 @@
 package com.padr.buynow.domain.core.product.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.core.product.entity.ProductTypeAttributeGroup;
-import com.padr.buynow.domain.core.product.exception.ProductTypeAttributeGroupAlreadyExistWithNameException;
 import com.padr.buynow.domain.core.product.exception.ProductTypeAttributeGroupNotFoundException;
 import com.padr.buynow.outbound.persistence.product.port.ProductTypeAttributeGroupPersistencePort;
 
@@ -19,10 +16,6 @@ public class ProductTypeAttributeGroupService {
 
     public ProductTypeAttributeGroup create(
             ProductTypeAttributeGroup productTypeAttributeGroup) {
-        productTypeAttributeGroupPersistencePort.findByName(productTypeAttributeGroup.getName()).ifPresent(ptag -> {
-            throw new ProductTypeAttributeGroupAlreadyExistWithNameException();
-        });
-
         productTypeAttributeGroup.setIsActive(true);
 
         return productTypeAttributeGroupPersistencePort.save(productTypeAttributeGroup);
@@ -33,25 +26,9 @@ public class ProductTypeAttributeGroupService {
                 .orElseThrow(ProductTypeAttributeGroupNotFoundException::new);
     }
 
-    public ProductTypeAttributeGroup findByName(String name) {
-        return productTypeAttributeGroupPersistencePort.findByName(name)
-                .orElseThrow(ProductTypeAttributeGroupNotFoundException::new);
-    }
-
-    public List<ProductTypeAttributeGroup> findByProductTypeId(Long productTypeId) {
-        return productTypeAttributeGroupPersistencePort.findByProductType(productTypeId);
-    }
-
     public ProductTypeAttributeGroup update(Long id, ProductTypeAttributeGroup updateProductTypeAttributeGroup) {
         ProductTypeAttributeGroup productTypeAttributeGroup = findById(id);
 
-        productTypeAttributeGroupPersistencePort.findByName(updateProductTypeAttributeGroup.getName())
-                .ifPresent(ptag -> {
-                    if (ptag.getId() != productTypeAttributeGroup.getId())
-                        throw new ProductTypeAttributeGroupAlreadyExistWithNameException();
-                });
-
-        productTypeAttributeGroup.setName(updateProductTypeAttributeGroup.getName());
         productTypeAttributeGroup.setLabel(updateProductTypeAttributeGroup.getLabel());
 
         return productTypeAttributeGroupPersistencePort.save(productTypeAttributeGroup);

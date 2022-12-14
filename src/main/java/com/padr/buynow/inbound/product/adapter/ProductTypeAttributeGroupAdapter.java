@@ -1,8 +1,5 @@
 package com.padr.buynow.inbound.product.adapter;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -49,17 +46,6 @@ public class ProductTypeAttributeGroupAdapter {
     @GetMapping("/by/id/{id}")
     public ProductTypeAttributeGroupResponse findById(@PathVariable Long id) {
         return ProductTypeAttributeGroupResponse.of(productTypeAttributeGroupServicePort.findById(id));
-    }
-
-    @GetMapping("/by/name/{name}")
-    public ProductTypeAttributeGroupResponse findByName(@PathVariable String name) {
-        return ProductTypeAttributeGroupResponse.of(productTypeAttributeGroupServicePort.findByName(name));
-    }
-
-    @GetMapping("/by/product-type/{productTypeId}")
-    public List<ProductTypeAttributeGroupResponse> findByProductTypeId(@PathVariable Long productTypeId) {
-        return productTypeAttributeGroupServicePort.findByProductTypeId(productTypeId).stream()
-                .map(ProductTypeAttributeGroupResponse::of).collect(Collectors.toList());
     }
 
     @PutMapping("/by/id/{id}")
