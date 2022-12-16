@@ -32,9 +32,6 @@ public class ProductType {
     private Long id;
 
     @Column
-    private String name;
-
-    @Column
     private String label;
 
     @Column

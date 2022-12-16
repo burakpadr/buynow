@@ -13,10 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductTypeRequest {
-    
-    @NotNull
-    @NotBlank
-    private String name;
 
     @NotNull
     @NotBlank
@@ -26,7 +22,6 @@ public class ProductTypeRequest {
 
     public ProductType to() {
         return ProductType.builder()
-                .name(name)
                 .label(label)
                 .build();
     }

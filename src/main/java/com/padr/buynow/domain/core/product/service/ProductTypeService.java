@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.core.product.entity.ProductType;
-import com.padr.buynow.domain.core.product.exception.ProductTypeAlreadyExistWithNameException;
 import com.padr.buynow.domain.core.product.exception.ProductTypeNotFoundException;
 import com.padr.buynow.outbound.persistence.product.port.ProductTypePersistencePort;
 
@@ -18,10 +17,6 @@ public class ProductTypeService {
     private final ProductTypePersistencePort productTypePersistencePort;
 
     public ProductType createProductType(ProductType productType) {
-        productTypePersistencePort.findByName(productType.getName()).ifPresent(pt -> {
-            throw new ProductTypeAlreadyExistWithNameException();
-        });
-
         productType.setIsActive(true);
 
         return productTypePersistencePort.save(productType);
@@ -31,10 +26,6 @@ public class ProductTypeService {
         return productTypePersistencePort.findById(id).orElseThrow(ProductTypeNotFoundException::new);
     }
 
-    public ProductType findByName(String name) {
-        return productTypePersistencePort.findByName(name).orElseThrow(ProductTypeNotFoundException::new);
-    }
-
     public List<ProductType> findByParentProductTypeId(Long productTypeId) {
         return productTypePersistencePort.findByParentProductTypeId(productTypeId);
     }
@@ -42,12 +33,6 @@ public class ProductTypeService {
     public ProductType updateProductType(Long id, ProductType updateProductType) {
         ProductType productType = findById(id);
 
-        productTypePersistencePort.findByName(updateProductType.getName()).ifPresent(pt -> {
-            if (pt.getId() != productType.getId())
-                throw new ProductTypeAlreadyExistWithNameException(); 
-        });
-
-        productType.setName(updateProductType.getName());
         productType.setLabel(updateProductType.getLabel());
         
         return productTypePersistencePort.save(productType);

@@ -26,11 +26,6 @@ public class ProductTypeServicePortImpl implements ProductTypeServicePort {
     }
 
     @Override
-    public ProductType findByName(String name) {
-        return productTypeService.findByName(name);
-    }
-
-    @Override
     public List<ProductType> findByParentProductTypeId(Long parentProductTypeId) {
         return productTypeService.findByParentProductTypeId(parentProductTypeId);
     }

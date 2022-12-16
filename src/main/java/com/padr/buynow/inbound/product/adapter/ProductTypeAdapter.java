@@ -50,11 +50,6 @@ public class ProductTypeAdapter {
         return ProductTypeResponse.of(productTypeServicePort.findById(productTypeId));
     }
 
-    @GetMapping("/by/name/{name}")
-    public ProductTypeResponse findByName(@PathVariable String name) {
-        return ProductTypeResponse.of(productTypeServicePort.findByName(name));
-    }
-
     @GetMapping("/by/parent-product-type/{parentProductTypeId}")
     public List<ProductTypeResponse> findByParentProductTypeId(@PathVariable Long parentProductTypeId) {
         return productTypeServicePort.findByParentProductTypeId(parentProductTypeId).stream()

@@ -10,8 +10,6 @@ public interface ProductTypeServicePort {
 
     ProductType findById(Long id);
 
-    ProductType findByName(String name);
-
     List<ProductType> findByParentProductTypeId(Long parentProductTypeId);
 
     ProductType updateProductType(Long id, ProductType updateProductType);

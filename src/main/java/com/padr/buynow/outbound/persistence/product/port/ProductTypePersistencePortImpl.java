@@ -20,12 +20,7 @@ public class ProductTypePersistencePortImpl implements ProductTypePersistencePor
     public Optional<ProductType> findById(Long id) {
         return productTypeRepository.findById(id);
     }
-
-    @Override
-    public Optional<ProductType> findByName(String name) {
-        return productTypeRepository.findByName(name);
-    }
-
+    
     @Override
     public List<ProductType> findByParentProductTypeId(Long parentProductTypeId) {
         return productTypeRepository.findByParentProductTypeId(parentProductTypeId);

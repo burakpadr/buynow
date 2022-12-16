@@ -13,7 +13,6 @@ import lombok.Data;
 public class ProductTypeResponse {
 
     private Long id;
-    private String name;
     private String label;
     private Boolean isActive;
     private List<ProductTypeAttributeGroupResponse> productTypeAttributeGroups;
@@ -21,7 +20,6 @@ public class ProductTypeResponse {
     public static ProductTypeResponse of(ProductType productType) {
         return ProductTypeResponse.builder()
                 .id(productType.getId())
-                .name(productType.getName())
                 .label(productType.getLabel())
                 .isActive(productType.getIsActive())
                 .productTypeAttributeGroups(productType.getProductTypeAttributeGroups().stream()
