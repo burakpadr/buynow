@@ -15,7 +15,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.padr.buynow.domain.core.address.entity.Address;
 import com.padr.buynow.domain.core.notice.constant.NoticeType;
 import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
@@ -57,9 +56,6 @@ public class Product {
 
     @OneToOne
     private User ownerUser;
-
-    @OneToOne
-    private Address address;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<ProductAttribute> productAttributes;

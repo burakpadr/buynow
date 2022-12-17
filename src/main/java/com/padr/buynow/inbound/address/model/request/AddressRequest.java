@@ -3,7 +3,7 @@ package com.padr.buynow.inbound.address.model.request;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.domain.core.address.entity.UserAddress;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +26,8 @@ public class AddressRequest {
     @NotEmpty
     private String cityName;
 
-    public Address to() {
-        return Address.builder()
+    public UserAddress to() {
+        return UserAddress.builder()
                 .countryName(countryName)
                 .stateName(stateName)
                 .cityName(cityName)

@@ -10,11 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.domain.core.address.entity.UserAddress;
 import com.padr.buynow.domain.core.notice.entity.Bid;
 import com.padr.buynow.domain.core.order.entity.Order;
 
@@ -57,8 +56,8 @@ public class User {
     @Column
     private Boolean isActive;
 
-    @OneToOne
-    private Address address;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private UserAddress address;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Bid> bids;

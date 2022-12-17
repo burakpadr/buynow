@@ -1,6 +1,6 @@
 package com.padr.buynow.inbound.address.model.response;
 
-import com.padr.buynow.domain.core.address.entity.Address;
+import com.padr.buynow.domain.core.address.entity.UserAddress;
 
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +14,7 @@ public class AddressResponse {
     private String stateName;
     private String cityName;
 
-    public static AddressResponse of(Address address) {
+    public static AddressResponse of(UserAddress address) {
         return AddressResponse.builder()
                 .id(address.getId())
                 .countryName(address.getCountryName())

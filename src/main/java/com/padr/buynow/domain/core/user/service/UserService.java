@@ -3,8 +3,6 @@ package com.padr.buynow.domain.core.user.service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.padr.buynow.domain.core.address.entity.Address;
-import com.padr.buynow.domain.core.address.service.AddressService;
 import com.padr.buynow.domain.core.user.entity.User;
 import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithEmailException;
 import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithIdentityNumberException;
@@ -18,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
     private final UserPersistencePort userPersistencePort;
-    private final AddressService addressService;
     private final PasswordEncoder passwordEncoder;
 
     public User createUserIfNotExist(User user) {
@@ -30,11 +27,8 @@ public class UserService {
             throw new UserAlreadyExistWithEmailException();
         });
 
-        Address address = addressService.createAddress(user.getAddress());
-
         user.setIsActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setAddress(address);
 
         return userPersistencePort.save(user);
     }
@@ -50,8 +44,6 @@ public class UserService {
             if (u.getId() != user.getId())
                 throw new UserAlreadyExistWithEmailException();
         });
-
-        addressService.updateAddress(user.getAddress().getId(), updateUser.getAddress());
 
         user.setName(updateUser.getName());
         user.setSurname(updateUser.getSurname());

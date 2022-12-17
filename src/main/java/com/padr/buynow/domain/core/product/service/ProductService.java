@@ -35,7 +35,6 @@ public class ProductService {
 
         product.setHeader(updateProduct.getHeader());
         product.setDescription(updateProduct.getDescription());
-        product.setAddress(updateProduct.getAddress());
 
         notifyTheObservers(product);
 
