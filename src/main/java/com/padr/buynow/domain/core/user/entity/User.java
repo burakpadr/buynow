@@ -54,7 +54,7 @@ public class User {
     private Boolean isActive;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private UserAddress address;
+    private List<UserAddress> address;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Bid> bids;

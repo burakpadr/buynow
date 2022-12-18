@@ -7,7 +7,5 @@ import com.padr.buynow.outbound.persistence.common.BasePersistencePort;
 
 public interface UserPersistencePort extends BasePersistencePort<User> {
 
-    Optional<User> findByIdentityNumber(String identityNumber);
-
     Optional<User> findByEmail(String email);
 }

@@ -21,11 +21,6 @@ public class UserPersistencePortImpl implements UserPersistencePort {
     }
 
     @Override
-    public Optional<User> findByIdentityNumber(String identityNumber) {
-        return userRepository.findByIdentityNumber(identityNumber);
-    }
-
-    @Override
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }

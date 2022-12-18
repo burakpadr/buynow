@@ -6,7 +6,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.padr.buynow.domain.core.user.entity.User;
-import com.padr.buynow.inbound.address.model.request.AddressRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,9 +35,6 @@ public class UserRequest {
     @NotNull
     private LocalDate birthdate;
 
-    @NotNull
-    private AddressRequest address;
-
     public User to() {
         return User.builder()
                 .name(name)
@@ -46,7 +42,6 @@ public class UserRequest {
                 .email(email)
                 .password(password)
                 .birthDate(birthdate)
-                .address(address.to())
                 .build();
     }
 }

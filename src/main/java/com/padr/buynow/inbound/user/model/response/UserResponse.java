@@ -3,7 +3,6 @@ package com.padr.buynow.inbound.user.model.response;
 import java.time.LocalDate;
 
 import com.padr.buynow.domain.core.user.entity.User;
-import com.padr.buynow.inbound.address.model.response.AddressResponse;
 
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +16,6 @@ public class UserResponse {
     private String surname;
     private String email;
     private LocalDate birthdate;
-    private AddressResponse address;
 
     public static UserResponse of(User user) {
         return UserResponse.builder()
@@ -26,7 +24,6 @@ public class UserResponse {
                 .surname(user.getName())
                 .email(user.getEmail())
                 .birthdate(user.getBirthDate())
-                .address(AddressResponse.of(user.getAddress()))
                 .build();
     } 
 }
