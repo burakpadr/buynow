@@ -15,6 +15,8 @@ public class UserAddressService {
     private final UserAddressPersistencePort userAddressPersistencePort;
 
     public UserAddress createUserAddress(UserAddress address) {
+        address.setIsActive(true);
+
         return userAddressPersistencePort.save(address);
     }
 
@@ -31,5 +33,13 @@ public class UserAddressService {
         address.setCityName(updateUserAddress.getCityName());
 
         return userAddressPersistencePort.save(address);
+    }
+
+    public void delete(Long id) {
+        UserAddress userAddress = findUserAddressById(id);
+
+        userAddress.setIsActive(false);
+
+        userAddressPersistencePort.save(userAddress);
     }
 }

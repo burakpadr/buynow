@@ -41,6 +41,9 @@ public class UserAddress {
     @Column 
     private String cityName;
 
+    @Column
+    private Boolean isActive;
+
     @ManyToOne
     private User user;
 }
