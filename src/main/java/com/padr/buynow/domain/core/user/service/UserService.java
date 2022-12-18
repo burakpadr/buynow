@@ -17,7 +17,7 @@ public class UserService {
     private final UserPersistencePort userPersistencePort;
     private final PasswordEncoder passwordEncoder;
 
-    public User createUserIfNotExist(User user) {
+    public User createUser(User user) {
         userPersistencePort.findByEmail(user.getEmail()).ifPresent(u -> {
             throw new UserAlreadyExistWithEmailException();
         });

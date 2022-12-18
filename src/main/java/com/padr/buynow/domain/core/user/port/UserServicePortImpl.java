@@ -15,7 +15,7 @@ public class UserServicePortImpl implements UserServicePort {
 
     @Override
     public User createUserIfNotExist(User user) {
-        return userService.createUserIfNotExist(user);
+        return userService.createUser(user);
     }
 
     @Override
