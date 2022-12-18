@@ -30,6 +30,9 @@ public class UserAddress {
     private Long id;
 
     @Column
+    private String addressName;
+
+    @Column
     private String countryName;
 
     @Column

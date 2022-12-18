@@ -25,6 +25,7 @@ public class UserAddressService {
     public UserAddress updateUserAddress(Long id, UserAddress updateUserAddress) {
         UserAddress address = findUserAddressById(id);
 
+        address.setAddressName(updateUserAddress.getAddressName());
         address.setCountryName(updateUserAddress.getCountryName());
         address.setStateName(updateUserAddress.getStateName());
         address.setCityName(updateUserAddress.getCityName());
