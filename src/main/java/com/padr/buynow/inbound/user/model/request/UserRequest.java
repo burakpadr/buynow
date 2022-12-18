@@ -27,10 +27,6 @@ public class UserRequest {
 
     @NotNull
     @NotEmpty
-    private String identityNumber;
-
-    @NotNull
-    @NotEmpty
     private String email;
 
     @NotNull
@@ -47,7 +43,6 @@ public class UserRequest {
         return User.builder()
                 .name(name)
                 .surname(surname)
-                .identityNumber(identityNumber)
                 .email(email)
                 .password(password)
                 .birthDate(birthdate)

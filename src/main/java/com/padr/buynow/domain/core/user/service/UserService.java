@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.core.user.entity.User;
 import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithEmailException;
-import com.padr.buynow.domain.core.user.exception.UserAlreadyExistWithIdentityNumberException;
 import com.padr.buynow.domain.core.user.exception.UserNotFoundException;
 import com.padr.buynow.outbound.persistence.user.port.UserPersistencePort;
 
@@ -19,10 +18,6 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public User createUserIfNotExist(User user) {
-        userPersistencePort.findByIdentityNumber(user.getIdentityNumber()).ifPresent(u -> {
-            throw new UserAlreadyExistWithIdentityNumberException();
-        });
-
         userPersistencePort.findByEmail(user.getEmail()).ifPresent(u -> {
             throw new UserAlreadyExistWithEmailException();
         });

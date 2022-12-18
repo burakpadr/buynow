@@ -15,7 +15,6 @@ public class UserResponse {
     private Long id;
     private String name;
     private String surname;
-    private String identityNumber;
     private String email;
     private LocalDate birthdate;
     private AddressResponse address;
@@ -25,7 +24,6 @@ public class UserResponse {
                 .id(user.getId())
                 .name(user.getName())
                 .surname(user.getName())
-                .identityNumber(user.getIdentityNumber())
                 .email(user.getEmail())
                 .birthdate(user.getBirthDate())
                 .address(AddressResponse.of(user.getAddress()))
