@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InputFieldTypeModel {
+public class CreateInputFieldTypeModel {
     
     private String name;
     private Boolean hasMultipleValue;
