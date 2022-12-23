@@ -35,8 +35,11 @@ public class ProductService {
 
         product.setHeader(updateProduct.getHeader());
         product.setDescription(updateProduct.getDescription());
+        product.setNoticeType(updateProduct.getNoticeType());
+        product.setAuctionNotice(updateProduct.getAuctionNotice());
+        product.setTraditionalNotice(updateProduct.getTraditionalNotice());
 
-        notifyTheObservers(product);
+        //notifyTheObservers(product);
 
         return productPersistencePort.save(product);
     }
@@ -49,11 +52,11 @@ public class ProductService {
         productPersistencePort.save(product);
     }
 
-    private void notifyTheObservers(Product product) {
-        List<CartItem> cartItems = cartItemService.findByProductId(product.getId());
+    // private void notifyTheObservers(Product product) {
+    //     List<CartItem> cartItems = cartItemService.findByProductId(product.getId());
 
-        cartItems.parallelStream().forEach(cartItem -> {
-            cartItemService.update(cartItem.getCartId(), product);
-        });
-    }
+    //     cartItems.parallelStream().forEach(cartItem -> {
+    //         cartItemService.update(cartItem.getCartId(), product);
+    //     });
+    // }
 }

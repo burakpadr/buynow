@@ -15,6 +15,7 @@ public class CreateAuctionNoticeModel {
     private Long auctionTimeMinutes;
     private Long minimumBidAccrual;
     private Boolean isPublished;
+    private Long productId;
 
     public AuctionNotice to() {
         return AuctionNotice.builder()

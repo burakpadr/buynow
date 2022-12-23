@@ -13,6 +13,7 @@ public class CreateTraditionalNoticeModel {
     
     private BigDecimal basePrice;
     private Boolean isPublished;
+    private Long productId;
     private CreateDiscountModel createDiscountModel;
 
     public TraditionalNotice to() {
