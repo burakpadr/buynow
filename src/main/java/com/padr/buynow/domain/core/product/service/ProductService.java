@@ -1,11 +1,10 @@
 package com.padr.buynow.domain.core.product.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
-import com.padr.buynow.domain.core.cart.entity.CartItem;
-import com.padr.buynow.domain.core.cart.service.CartItemService;
+import com.padr.buynow.domain.core.notice.constant.NoticeType;
+import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
+import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
 import com.padr.buynow.domain.core.product.entity.Product;
 import com.padr.buynow.domain.core.product.exception.ProductNotFoundException;
 import com.padr.buynow.outbound.persistence.product.port.ProductPersistencePort;
@@ -15,10 +14,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    
-    private final ProductPersistencePort productPersistencePort;
 
-    private final CartItemService cartItemService;
+    private final ProductPersistencePort productPersistencePort;
 
     public Product create(Product product) {
         product.setIsActive(true);
@@ -35,13 +32,26 @@ public class ProductService {
 
         product.setHeader(updateProduct.getHeader());
         product.setDescription(updateProduct.getDescription());
-        product.setNoticeType(updateProduct.getNoticeType());
-        product.setAuctionNotice(updateProduct.getAuctionNotice());
-        product.setTraditionalNotice(updateProduct.getTraditionalNotice());
-
-        //notifyTheObservers(product);
 
         return productPersistencePort.save(product);
+    }
+
+    public void setAuctionNotice(Long productId, AuctionNotice auctionNotice) {
+        Product product = findById(productId);
+
+        product.setNoticeType(NoticeType.AUCTION_NOTICE);
+        product.setAuctionNotice(auctionNotice);
+
+        productPersistencePort.save(product);
+    }
+
+    public void setTraditionalNotice(Long productId, TraditionalNotice traditionalNotice) {
+        Product product = findById(productId);
+
+        product.setNoticeType(NoticeType.TRADITIONAL_NOTICE);
+        product.setTraditionalNotice(traditionalNotice);
+
+        productPersistencePort.save(product);
     }
 
     public void delete(Long id) {
@@ -51,12 +61,4 @@ public class ProductService {
 
         productPersistencePort.save(product);
     }
-
-    // private void notifyTheObservers(Product product) {
-    //     List<CartItem> cartItems = cartItemService.findByProductId(product.getId());
-
-    //     cartItems.parallelStream().forEach(cartItem -> {
-    //         cartItemService.update(cartItem.getCartId(), product);
-    //     });
-    // }
 }
