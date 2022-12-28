@@ -28,12 +28,8 @@ public class CartItemService {
         return cartItemCachePort.findById(id).orElseThrow(CartItemNotFoundException::new);
     }
 
-    public List<CartItem> findByCartId(String cartId) {
-        return cartItemCachePort.findByCartId(cartId);
-    }
-
-    public List<CartItem> findByProductId(Long productId) {
-        return cartItemCachePort.findByProductId(productId);
+    public List<CartItem> findByUserId(Long userId) {
+        return cartItemCachePort.findByUserId(userId);
     }
 
     public CartItem update(String cartItemId, Product product) {
@@ -52,7 +48,7 @@ public class CartItemService {
         cartItemCachePort.deleteById(id);
     }
 
-    public void deleteByCartId(String cartId) {
-        cartItemCachePort.deleteByCartId(cartId);
+    public void deleteByUserId(Long userId) {
+        cartItemCachePort.deleteByUserId(userId);
     }
 }

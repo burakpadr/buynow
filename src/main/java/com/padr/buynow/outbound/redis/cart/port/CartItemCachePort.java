@@ -9,7 +9,7 @@ public interface CartItemCachePort {
 
     Optional<CartItem> findById(String id);
 
-    List<CartItem> findByCartId(String cartId);
+    List<CartItem> findByUserId(Long userId);
 
     List<CartItem> findByProductId(Long productId);
 
@@ -17,5 +17,5 @@ public interface CartItemCachePort {
 
     void deleteById(String id);
 
-    void deleteByCartId(String cartId);
+    void deleteByUserId(Long userId);
 }

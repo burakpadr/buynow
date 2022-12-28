@@ -24,7 +24,7 @@ public class CartItem {
     private String id;
 
     @Indexed
-    private String cartId;
+    private Long userId;
 
     @Indexed
     private Long productId;

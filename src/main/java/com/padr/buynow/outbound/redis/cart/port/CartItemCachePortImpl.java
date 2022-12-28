@@ -17,8 +17,8 @@ public class CartItemCachePortImpl implements CartItemCachePort {
     private final CartItemCacheRepository cartItemCacheRepository;
 
     @Override
-    public List<CartItem> findByCartId(String cartId) {
-        return cartItemCacheRepository.findByCartId(cartId);
+    public List<CartItem> findByUserId(Long userId) {
+        return cartItemCacheRepository.findByUserId(userId);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class CartItemCachePortImpl implements CartItemCachePort {
     }
 
     @Override
-    public void deleteByCartId(String cartId) {
-        cartItemCacheRepository.deleteByCartId(null);
+    public void deleteByUserId(Long userId) {
+        cartItemCacheRepository.deleteByUserId(userId);
     }
 
     @Override
