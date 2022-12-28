@@ -32,6 +32,10 @@ public class CartItemService {
         return cartItemCachePort.findByUserId(userId);
     }
 
+    public List<CartItem> findByProductId(Long productId) {
+        return cartItemCachePort.findByProductId(productId);
+    }
+
     public CartItem update(String cartItemId, Product product) {
         CartItem cartItem = findById(cartItemId);
 
