@@ -56,7 +56,7 @@ public class UpdateProduct implements BaseUseCase<Product, UpdateProductModel> {
         List<CartItem> cartItems = cartItemService.findByProductId(product.getId());
 
         cartItems.stream().parallel().forEach(cartItem -> {
-            cartItemService.update(cartItem.getId(), product);
+            cartItemService.updateFromProduct(cartItem.getId(), product);
         });
     }
 }

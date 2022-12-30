@@ -16,9 +16,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CreateTraditionalNotice implements BaseUseCase<TraditionalNotice, CreateTraditionalNoticeModel> {
 
-    private TraditionalNoticeService traditionalNoticeService;
-    private DiscountService discountService;
-    private ProductService productService;
+    private final TraditionalNoticeService traditionalNoticeService;
+    private final DiscountService discountService;
+    private final ProductService productService;
 
     @Override
     public TraditionalNotice perform(CreateTraditionalNoticeModel model) {

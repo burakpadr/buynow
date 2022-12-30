@@ -2,6 +2,7 @@ package com.padr.buynow.domain.core.cart.service;
 
 import java.util.List;
 
+import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
 import org.springframework.stereotype.Service;
 
 import com.padr.buynow.domain.core.cart.constant.CartConstant;
@@ -36,16 +37,19 @@ public class CartItemService {
         return cartItemCachePort.findByProductId(productId);
     }
 
-    public CartItem update(String cartItemId, Product product) {
+    public void updateFromProduct(String cartItemId, Product product) {
         CartItem cartItem = findById(cartItemId);
 
-        cartItem.setSellerTitle(
-                String.format("%s %s", product.getOwnerUser().getName(), product.getOwnerUser().getSurname()));
+//        cartItem.setSellerTitle(
+//                String.format("%s %s", product.getOwnerUser().getName(), product.getOwnerUser().getSurname()));
         cartItem.setProductHeader(product.getHeader());
-        cartItem.setBasePrice(product.getTraditionalNotice().getBasePrice());
-        cartItem.setDiscount(product.getTraditionalNotice().getDiscount().getPercent());
+    }
 
-        return cartItemCachePort.save(cartItem);
+    public void updateFromTraditionalNotice(String cartItemId, TraditionalNotice traditionalNotice) {
+        CartItem cartItem = findById(cartItemId);
+
+        cartItem.setBasePrice(traditionalNotice.getBasePrice());
+        cartItem.setDiscount(traditionalNotice.getDiscount().getPercent());
     }
 
     public void deleteById(String id) {

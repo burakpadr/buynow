@@ -12,6 +12,7 @@ import lombok.Data;
 public class UpdateTraditionalNoticeModel {
     
     private Long id;
+    private Long productId;
     private BigDecimal basePrice;
     private Boolean isPublished;
     private UpdateDiscountModel updateDiscountModel;
