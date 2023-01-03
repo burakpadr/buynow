@@ -1,8 +1,9 @@
 package com.padr.buynow.domain.core.order.constant;
 
 public enum OrderStep {
-    
-    PREPARING_CARGO,
-    IN_CARGO,
-    SOLD
+
+    CONTINUES,
+    COMPLETED,
+    COULD_NOT_BE_DELIVERED,
+    CANCELLED
 }

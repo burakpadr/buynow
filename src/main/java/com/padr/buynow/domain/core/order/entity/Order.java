@@ -2,19 +2,11 @@ package com.padr.buynow.domain.core.order.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.padr.buynow.domain.core.order.constant.OrderStep;
 import com.padr.buynow.domain.core.product.entity.Product;
+import com.padr.buynow.domain.core.shipment.entity.Shipment;
 import com.padr.buynow.domain.core.user.entity.User;
 
 import lombok.AllArgsConstructor;
@@ -46,8 +38,11 @@ public class Order {
     private Boolean isActive;
 
     @ManyToOne
-    private User user;
+    private User buyer;
 
     @ManyToOne
     private Product product;
+
+    @OneToOne
+    private Shipment shipment;
 }

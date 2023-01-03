@@ -27,7 +27,7 @@ public class OrderPersistencePortImpl implements OrderPersistencePort {
     }
 
     @Override
-    public List<Order> findByUserId(Long userId) {
-        return orderRepository.findByUserId(userId);
+    public List<Order> findByBuyerId(Long buyerId) {
+        return orderRepository.findByBuyerId(buyerId);
     }
 }

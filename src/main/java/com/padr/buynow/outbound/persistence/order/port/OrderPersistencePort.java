@@ -10,5 +10,5 @@ import com.padr.buynow.outbound.persistence.common.BasePersistencePort;
 @Repository
 public interface OrderPersistencePort extends BasePersistencePort<Order> {
     
-    List<Order> findByUserId(Long userId);
+    List<Order> findByBuyerId(Long buyerId);
 }

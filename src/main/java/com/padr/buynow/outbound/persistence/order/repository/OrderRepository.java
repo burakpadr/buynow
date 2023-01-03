@@ -8,5 +8,5 @@ import com.padr.buynow.domain.core.order.entity.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
     
-    List<Order> findByUserId(Long userId);
+    List<Order> findByBuyerId(Long buyerId);
 }
