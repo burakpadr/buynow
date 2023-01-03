@@ -40,8 +40,6 @@ public class CartItemService {
     public void updateFromProduct(String cartItemId, Product product) {
         CartItem cartItem = findById(cartItemId);
 
-//        cartItem.setSellerTitle(
-//                String.format("%s %s", product.getOwnerUser().getName(), product.getOwnerUser().getSurname()));
         cartItem.setProductHeader(product.getHeader());
     }
 
