@@ -23,6 +23,7 @@ integration:
       apiAuthenticationAlias: X-CSCAPI-KEY
       apiAuthenticationValue: xxx
 
-hashids:
-  salt: salt
-  minimumHashLength: 6
+  iyzipay:
+      baseUrl: https://sandbox-api.iyzipay.com
+      apiKey: xxx
+      apiSecret: xxx
