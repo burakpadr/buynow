@@ -1,6 +1,5 @@
 package com.padr.buynow.outbound.iyzipay.model.transaction;
 
-import com.iyzipay.model.ThreedsPayment;
 import com.iyzipay.request.CreateThreedsPaymentRequest;
 import lombok.Builder;
 import lombok.Data;
