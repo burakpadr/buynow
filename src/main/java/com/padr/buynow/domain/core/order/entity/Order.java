@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.*;
 
 import com.padr.buynow.domain.core.order.constant.OrderStep;
+import com.padr.buynow.domain.core.payment.entity.PaymentTransaction;
 import com.padr.buynow.domain.core.product.entity.Product;
 import com.padr.buynow.domain.core.shipment.entity.Shipment;
 import com.padr.buynow.domain.core.user.entity.User;
@@ -45,4 +46,7 @@ public class Order {
 
     @OneToOne
     private Shipment shipment;
+
+    @OneToOne
+    private PaymentTransaction paymentTransaction;
 }
