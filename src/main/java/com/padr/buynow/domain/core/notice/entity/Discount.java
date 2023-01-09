@@ -10,18 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "discounts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Discount {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Discount extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "discount_id_seq", sequenceName = "discount_id_seq")

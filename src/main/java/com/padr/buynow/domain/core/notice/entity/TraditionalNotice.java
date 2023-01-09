@@ -11,18 +11,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "traditional_notices")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class TraditionalNotice {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class TraditionalNotice extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "traditional_notice_id_seq", sequenceName = "traditional_notice_id_seq")

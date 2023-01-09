@@ -15,23 +15,23 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
 import com.padr.buynow.domain.core.notice.constant.NoticeType;
 import com.padr.buynow.domain.core.notice.entity.AuctionNotice;
 import com.padr.buynow.domain.core.notice.entity.TraditionalNotice;
 import com.padr.buynow.domain.core.user.entity.User;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Product {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Product extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq")

@@ -13,18 +13,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "product_types")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ProductType {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class ProductType extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "product_type_id_seq", sequenceName = "product_type_id_seq")

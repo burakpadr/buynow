@@ -16,20 +16,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
 import com.padr.buynow.domain.core.notice.constant.AuctionNoticeStep;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "auction_notices")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class AuctionNotice {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class AuctionNotice extends BaseEntity {
 
     @Id
     @SequenceGenerator(name = "auction_notice_id_seq", sequenceName = "auction_notice_id_seq")

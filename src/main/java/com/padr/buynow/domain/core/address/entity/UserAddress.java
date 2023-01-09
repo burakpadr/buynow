@@ -9,20 +9,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
 import com.padr.buynow.domain.core.user.entity.User;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "user_addresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class UserAddress {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class UserAddress extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "user_address_id_seq", sequenceName = "user_address_id_seq") 

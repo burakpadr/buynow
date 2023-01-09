@@ -14,20 +14,20 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
 import com.padr.buynow.domain.core.frontend.entity.InputFieldType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "attributes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ProductTypeAttribute {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class ProductTypeAttribute extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "attribute_id_seq", sequenceName = "attribute_id_seq")

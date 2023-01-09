@@ -9,18 +9,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "attribute_values")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ProductTypeAttributeValue {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class ProductTypeAttributeValue extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "attribute_value_id_seq", sequenceName = "attribute_value_id_seq")

@@ -1,9 +1,8 @@
 package com.padr.buynow.domain.core.shipment.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -12,8 +11,9 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Shipment {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class Shipment extends BaseEntity {
 
     @Id
     @SequenceGenerator(name = "shipment_id_seq", sequenceName = "shipment_id_seq")

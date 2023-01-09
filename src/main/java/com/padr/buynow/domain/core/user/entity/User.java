@@ -14,21 +14,21 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.padr.buynow.domain.core.address.entity.UserAddress;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
 import com.padr.buynow.domain.core.notice.entity.Bid;
 import com.padr.buynow.domain.core.order.entity.Order;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class User {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class User extends BaseEntity {
 
     @Id
     @SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_seq")
@@ -57,8 +57,11 @@ public class User {
     private List<UserAddress> address;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Bid> bids;
+    private List<UserAddress> billingAddresses;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Bid> bids;
+
+    @OneToMany(mappedBy = "buyer", fetch = FetchType.LAZY)
     private List<Order> orders;
 }

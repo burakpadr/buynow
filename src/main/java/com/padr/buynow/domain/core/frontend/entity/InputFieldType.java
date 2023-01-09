@@ -8,18 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.padr.buynow.domain.core.common.entity.BaseEntity;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "input_field_types")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class InputFieldType {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class InputFieldType extends BaseEntity {
     
     @Id
     @SequenceGenerator(name = "input_field_type_id_seq", sequenceName = "input_field_type_id_seq")
