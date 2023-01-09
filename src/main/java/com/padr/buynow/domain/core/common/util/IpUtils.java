@@ -5,7 +5,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class IpFinderUtil {
+public class IpUtils {
+
+    private IpUtils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static final String[] IP_HEADER_CANDIDATES = {
             "X-Forwarded-For",

@@ -1,6 +1,6 @@
 package com.padr.buynow.domain.core.common.entity;
 
-import com.padr.buynow.domain.core.common.util.IpFinderUtil;
+import com.padr.buynow.domain.core.common.util.IpUtils;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -37,11 +37,11 @@ public class BaseEntity {
 
     @PrePersist
     public void prePersist() {
-        ip = IpFinderUtil.getClientIp();
+        ip = IpUtils.getClientIp();
     }
 
     @PreUpdate
     public void preUpdate() {
-        ip = IpFinderUtil.getClientIp();
+        ip = IpUtils.getClientIp();
     }
 }
