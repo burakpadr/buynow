@@ -14,6 +14,7 @@ public class UpdateUserAddressModel {
     private String countryName;
     private String stateName;
     private String cityName;
+    private String openAddress;
 
     public UserAddress to() {
         return UserAddress.builder()
@@ -21,6 +22,7 @@ public class UpdateUserAddressModel {
                 .countryName(countryName)
                 .stateName(stateName)
                 .cityName(cityName)
+                .openAddress(openAddress)
                 .build();
     }
 }

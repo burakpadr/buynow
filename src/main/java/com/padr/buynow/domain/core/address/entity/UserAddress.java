@@ -42,6 +42,9 @@ public class UserAddress extends BaseEntity {
     private String cityName;
 
     @Column
+    private String openAddress;
+
+    @Column
     private Boolean isActive;
 
     @ManyToOne

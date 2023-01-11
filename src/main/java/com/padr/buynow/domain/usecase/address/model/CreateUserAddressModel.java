@@ -13,6 +13,7 @@ public class CreateUserAddressModel {
     private String countryName;
     private String stateName;
     private String cityName;
+    private String openAddress;
     private Long userId;
 
     public UserAddress to() {
@@ -21,6 +22,7 @@ public class CreateUserAddressModel {
                 .countryName(countryName)
                 .stateName(stateName)
                 .cityName(cityName)
+                .openAddress(openAddress)
                 .build();
     }
 }

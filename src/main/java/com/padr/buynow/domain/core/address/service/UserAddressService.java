@@ -31,6 +31,7 @@ public class UserAddressService {
         address.setCountryName(updateUserAddress.getCountryName());
         address.setStateName(updateUserAddress.getStateName());
         address.setCityName(updateUserAddress.getCityName());
+        address.setOpenAddress(updateUserAddress.getOpenAddress());
 
         return userAddressPersistencePort.save(address);
     }
