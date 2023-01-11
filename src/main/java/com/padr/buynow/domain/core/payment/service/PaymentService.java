@@ -28,26 +28,15 @@ public class PaymentService {
 
         throwPaymentExceptionIfStatusIsFailure(payment);
 
-        Optional<PaymentItem> paymentItemOptional = payment.getPaymentItems().stream().findAny();
-
-        if (!paymentItemOptional.isPresent()) {
-            cancelPayment(CancelCompletedPaymentTransactionModel.builder()
-                    .locale(Locale.EN.getValue())
-                    .conversationId(null)
+        payment.getPaymentItems().stream().parallel().forEach(paymentItem -> {
+            PaymentTransaction paymentTransaction = PaymentTransaction.builder()
                     .paymentId(payment.getPaymentId())
-                    .ip(environment.getProperty("server.address"))
-                    .build());
+                    .paymentTransactionId(paymentItem.getPaymentTransactionId())
+                    .ipAddress(environment.getProperty("server.address"))
+                    .build();
 
-            throw new PaymentException();
-        }
-
-        PaymentTransaction paymentTransaction = PaymentTransaction.builder()
-                .paymentId(payment.getPaymentId())
-                .paymentTransactionId(payment.getPaymentItems().get(0).getPaymentTransactionId())
-                .ipAddress(environment.getProperty("server.address"))
-                .build();
-
-        paymentTransactionPersistencePort.save(paymentTransaction);
+            paymentTransactionPersistencePort.save(paymentTransaction);
+        });
 
         return payment;
     }
